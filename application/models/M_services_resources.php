@@ -12,8 +12,8 @@ class M_services_resources extends M_db
 	{
 		$sql  = "SELECT * FROM {$this->_table} WHERE 1 = 1";
 		if (!is_null($info)) {
-			if (!empty($info->service_id)) {
-				$sql .= " AND service_id = '{$info->service_id}'";
+			if (!empty($info->service_tab_id)) {
+				$sql .= " AND service_tab_id = '{$info->service_tab_id}'";
 			}
 			if (!empty($info->module)) {
 				$sql .= " AND module = '{$info->module}'";
@@ -41,8 +41,8 @@ class M_services_resources extends M_db
 	{
 		$sql = "SELECT {$this->_table}.*, vs_content.* FROM {$this->_table} INNER JOIN vs_content ON ({$this->_table}.content_id = vs_content.id) WHERE 1=1";
 		if (!is_null($info)) {
-			if (!empty($info->service_id)) {
-				$sql .= " AND {$this->_table}.service_id = '{$info->service_id}'";
+			if (!empty($info->service_tab_id)) {
+				$sql .= " AND {$this->_table}.service_tab_id = '{$info->service_tab_id}'";
 			}
 			if (!empty($info->module)) {
 				$sql .= " AND {$this->_table}.module = '{$info->module}'";
@@ -70,8 +70,8 @@ class M_services_resources extends M_db
 		$sql = "SELECT {$this->_table}.*, vs_content.* FROM {$this->_table} INNER JOIN vs_content ON {$this->_table}.content_id = vs_content.id WHERE 1=1";
 		$sql .= " AND {$this->_table}.id <> '{$excluded_id}'";
 		if (!is_null($info)) {
-			if (!empty($info->service_id)) {
-				$sql .= " AND {$this->_table}.service_id = '{$info->service_id}'";
+			if (!empty($info->service_tab_id)) {
+				$sql .= " AND {$this->_table}.service_tab_id = '{$info->service_tab_id}'";
 			}
 			if (!empty($info->module)) {
 				$sql .= " AND {$this->_table}.module = '{$info->module}'";

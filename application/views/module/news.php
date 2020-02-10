@@ -1,11 +1,15 @@
 <?
-$method = $this->util->slug($this->router->fetch_class());
-if ($method != 'our-services') {
+	$method = $this->util->slug($this->router->fetch_class());
 	$info = new stdClass();
 	$info->module = 'new';
-	$info->jurisdiction_id = $item->jurisdiction_id;
-	$jurisdictions_modules = $this->m_jurisdictions_resources->join_content_items($info);
-	$c = count($jurisdictions_modules);
+	if ($method != 'our-services') {
+		$info->jurisdiction_id = $item->jurisdiction_id;
+		$module_items = $this->m_jurisdictions_resources->join_content_items($info);
+	} else {
+		$info->service_tab_id = $tab->id;
+		$module_items = $this->m_services_resources->join_content_items($info);
+	}
+	$c = count($module_items);
 ?>
 <div class=" d-none d-lg-block" id="<?=!empty($tab_detail->module) ? $tab_detail->module : ''?>">
 	<div class="resources wrap-owl">
@@ -21,22 +25,22 @@ if ($method != 'our-services') {
 					<li><i class="transition fas fa-angle-left"></i></li>
 					<li><i class="transition fas fa-angle-right"></i></li>
 				</ul>
-				<? if(!empty($jurisdictions_modules)) { ?>
+				<? if(!empty($module_items)) { ?>
 				<div class="owl-carousel owl-theme carousel-resources">
 					<div class="item" data-merge="2">
 						<div class="mer-item">
-							<div class="bg-item" style="background-image: url(<?=BASE_URL.$jurisdictions_modules[0]->thumbnail?>);">
+							<div class="bg-item" style="background-image: url(<?=BASE_URL.$module_items[0]->thumbnail?>);">
 								<div class="info">
-									<a href="<?=site_url("news/{$this->m_jurisdictions->load_nation($jurisdictions_modules[0]->jurisdiction_id)->alias}/{$jurisdictions_modules[0]->alias}")?>">
-										<h5 class="title-item"><?=$jurisdictions_modules[0]->title?></h5>
+									<a href="<?=site_url("news/{$module_items[0]->alias}")?>">
+										<h5 class="title-item"><?=$module_items[0]->title?></h5>
 										<p>
-										<?=word_limiter(strip_tags($jurisdictions_modules[0]->summary), 35)?>
+										<?=word_limiter(strip_tags($module_items[0]->summary), 35)?>
 										</p>
 									</a>
-									<a href="<?=site_url("news/{$this->m_jurisdictions->load_nation($jurisdictions_modules[0]->jurisdiction_id)->alias}/{$jurisdictions_modules[0]->alias}")?>" class="btn-viewmore">View more</a>
+									<a href="<?=site_url("news/{$module_items[0]->alias}")?>" class="btn-viewmore">View more</a>
 									<div class="date">
-										<label><?=date('d',strtotime($jurisdictions_modules[0]->created_date))?></label><br>
-										<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($jurisdictions_modules[0]->created_date))?></label>
+										<label><?=date('d',strtotime($module_items[0]->created_date))?></label><br>
+										<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($module_items[0]->created_date))?></label>
 									</div>
 								</div>
 							</div>
@@ -44,18 +48,18 @@ if ($method != 'our-services') {
 					</div>
 					<? for ($i=1; $i < $c; $i++) { ?>
 					<div class="item">
-						<a href="<?=site_url("news/{$this->m_jurisdictions->load_nation($jurisdictions_modules[$i]->jurisdiction_id)->alias}/{$jurisdictions_modules[$i]->alias}")?>">
+						<a href="<?=site_url("news/{$module_items[$i]->alias}")?>">
 							<div class="re-item">
-								<div class="bg-re-item" style="background-image: url(<?=BASE_URL.$jurisdictions_modules[$i]->thumbnail?>);">
+								<div class="bg-re-item" style="background-image: url(<?=BASE_URL.$module_items[$i]->thumbnail?>);">
 									<div class="date">
-										<label><?=date('d',strtotime($jurisdictions_modules[1]->created_date))?></label><br>
-										<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($jurisdictions_modules[1]->created_date))?></label>
+										<label><?=date('d',strtotime($module_items[1]->created_date))?></label><br>
+										<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($module_items[1]->created_date))?></label>
 									</div>
 								</div>
 							</div>
-							<h5 class="title-re-item"><?=$jurisdictions_modules[$i]->title?></h5>
+							<h5 class="title-re-item"><?=$module_items[$i]->title?></h5>
 						</a>
-						<a href="<?=site_url("news/{$this->m_jurisdictions->load_nation($jurisdictions_modules[$i]->jurisdiction_id)->alias}/{$jurisdictions_modules[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
+						<a href="<?=site_url("news/{$module_items[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
 					</div>
 					<? } ?>
 				</div>
@@ -90,4 +94,3 @@ if ($method != 'our-services') {
 		</div>
 	</div>
 </div>
-<? } ?>

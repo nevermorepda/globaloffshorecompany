@@ -1,7 +1,7 @@
 <?php
 // WEB ROOT URI
 define("PROTOCOL",				"http://localhost/");
-define("DOMAIN",				"offshore");
+define("DOMAIN",				"global-offshore");
 define("BASE_URL",				PROTOCOL.DOMAIN);
 define("BASE_URL_HTTPS",		BASE_URL);
 define("TPL_URL",				BASE_URL."/template/");

@@ -3342,11 +3342,11 @@ class Syslog extends CI_Controller {
 	}
 	public function get_services_content() {
 		$module = $this->input->post('module');
-		$service_id = $this->input->post('service_id');
+		$service_tab_id = $this->input->post('service_tab_id');
 
 		$info = new stdClass();
 		$info->module = $module;
-		$info->service_id = $service_id;
+		$info->service_tab_id = $service_tab_id;
 		$service_modules = $this->m_services_resources->items($info);
 
 		$arr_modules = array();
@@ -3366,12 +3366,12 @@ class Syslog extends CI_Controller {
 	}
 	public function add_services_content() {
 		$module = $this->input->post('module');
-		$service_id = $this->input->post('service_id');
+		$service_tab_id = $this->input->post('service_tab_id');
 		$list_content = array_filter($this->input->post('list_content'));
 
 		foreach ($list_content as $value) {
 			$data = array(
-				"service_id" => $service_id,
+				"service_tab_id" => $service_tab_id,
 				"module" => $module,
 				"content_id" => $value,
 			);

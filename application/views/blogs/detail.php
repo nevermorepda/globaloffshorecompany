@@ -1,6 +1,6 @@
-<div class="banner" style="background-image: url('<?=IMG_URL?>banner_services_company.jpg')">
+<div class="banner" style="background-image: url('<?=BASE_URL.$item->thumbnail?>')">
 	<div class="container">
-		<h2><?=$title?></h2>
+		<h2>BLOGS</h2>
 		<div style="display: table;"><i class="fas fa-angle-right"></i><h1><?=$item->title?></h1></div>
 	</div>
 </div>
@@ -52,14 +52,14 @@
 					<? $c_relateditems = count($relateditems); ?>
 					<div class="item" data-merge="2">
 						<div class="mer-item">
-							<a href="<?=site_url("blogs/{$type}/{$relateditems[0]->alias}")?>">
+							<a href="<?=site_url("blogs/{$relateditems[0]->alias}")?>">
 								<div class="bg-item" style="background-image: url(<?=BASE_URL.$relateditems[0]->thumbnail?>);">
 									<div class="info">
 										<h5 class="title-item"><?=$relateditems[0]->title?></h5>
 										<p>
 											<?=word_limiter(strip_tags($relateditems[0]->summary),20)?>
 										</p>
-										<a href="<?=site_url("blogs/{$type}/{$relateditems[0]->alias}")?>" class="btn-viewmore">View more</a>
+										<a href="<?=site_url("blogs/{$relateditems[0]->alias}")?>" class="btn-viewmore">View more</a>
 										<div class="date">
 											<label><?=date('d',strtotime($relateditems[0]->created_date))?></label><br>
 											<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($relateditems[0]->created_date))?></label>
@@ -71,7 +71,7 @@
 					</div>
 					<? for ($i=1; $i < $c_relateditems; $i++) { ?>
 					<div class="item">
-						<a href="<?=site_url("blogs/{$type}/{$relateditems[$i]->alias}")?>">
+						<a href="<?=site_url("blogs/{$relateditems[$i]->alias}")?>">
 							<div class="re-item border-red">
 								<div class="bg-re-item" style="background-image: url(<?=BASE_URL.$relateditems[$i]->thumbnail?>);">
 									<div class="date">
@@ -81,7 +81,7 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$relateditems[$i]->title?></h5>
-							<a href="<?=site_url("blogs/{$type}/{$relateditems[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
+							<a href="<?=site_url("blogs/{$relateditems[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
