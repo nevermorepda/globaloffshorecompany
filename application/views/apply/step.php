@@ -31,7 +31,7 @@
 						</div>
 						<br>
 						<p>Please select any additional supplies or services that you would like.</p>
-						<p>You have chosen the <strong class="text-color-red set-nation">Hong Kong</strong> Corporation, Which includes:</p>
+						<p>You have chosen the <strong class="text-color-red set-nation">National</strong> Corporation, Which includes:</p>
 
 					</div>
 					<div class="col-lg-5 d-none d-xl-block d-lg-block">

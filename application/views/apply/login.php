@@ -1,6 +1,6 @@
 <?
 	$data = null;
-	if ($this->session->flashdata('login')) {
+	if ($this->session->flashdata('login')) {	
 		$data = $this->session->flashdata('login');
 	}
 	$email					= (!empty($data->email) ? $data->email : "");
@@ -10,7 +10,6 @@
 	$new_password			= (!empty($data->new_password) ? $data->new_password : "");
 	$new_confirm_password	= (!empty($data->new_confirm_password) ? $data->new_confirm_password : "");
 	$new_phone				= (!empty($data->new_phone) ? $data->new_phone : "");
-
 ?>
 <div class="container">
 	<!-- breadcrumb -->
@@ -23,7 +22,10 @@
 	
 	<div class="">
 		<div class="login-form">
-			<form id="frmSignUp" name="frmSignUp" class="form-horizontal" role="form" action="<?=site_url("member/dologin")?>" method="POST">
+			<div class="tab-step clearfix">
+				<h1 class="note">Application Form</h1>
+			</div>
+			<form id="frmSignUp" name="frmSignUp" class="form-horizontal" role="form" action="<?=BASE_URL_HTTPS."/apply-company-services/dologin.html"?>" method="POST">
 				<div class="row">
 					<div class="col-md-5 col-sm-5 col-xs-12">
 						<div>
@@ -66,7 +68,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="switcher col-md-2 col-sm-2 d-none d-sm-block">
+					<div class="switcher col-md-2 col-sm-2 d-none d-sm-none d-md-block">
 						<div class="switch-line"></div>
 						<div class="switch-icon"></div>
 					</div>
@@ -74,13 +76,13 @@
 						<div>
 							<h4 class="text-left">I am a new customer</h4>
 							<div class="">
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4"></div>
 									<div class="col-md-8">
 										<h1 class="text-left">Sign Up</h1>
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4">
 										<label class="control-label">Full name <span class="red">*</span></label>
 									</div>
@@ -88,19 +90,19 @@
 										<div class="row">
 											<div class="col-xs-4 col-sm-4 col-md-4">
 												<select class="form-control" id="new_title" name="new_title">
-													<option value="Mr">Mr</option>
+													<option value="Mr" selected="selected">Mr</option>
 													<option value="Ms">Ms</option>
 													<option value="Mrs">Mrs</option>
 												</select>
 												<script> $("#new_title").val('<?=$new_title?>'); </script>
 											</div>
-											<div class="col-xs-8 col-sm-8 col-md-8 new-fullname">
+											<div class="col-xs-8 col-sm-8 col-md-8" style="padding-left: 0">
 												<input type="text" class="form-control" id="new_fullname" name="new_fullname" value="<?=$new_fullname?>" placeholder="Full name" />
 											</div>
 										</div>
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4">
 										<label class="control-label">Email <span class="red">*</span></label>
 									</div>
@@ -108,7 +110,7 @@
 										<input type="text" class="form-control" id="new_email" name="new_email" value="<?=$new_email?>" placeholder="Email" />
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4">
 										<label class="control-label">Phone <span class="red">*</span></label>
 									</div>
@@ -116,7 +118,7 @@
 										<input type="text" id="new_phone" name="new_phone" class="form-control" value="<?=$new_phone?>" placeholder="Phone number" />
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4">
 										<label class="control-label">Password <span class="red">*</span></label>
 									</div>
@@ -127,7 +129,7 @@
 										</span>
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4" style="padding-right: 0">
 										<label class="control-label">Confirm password <span class="red">*</span></label>
 									</div>
@@ -135,7 +137,7 @@
 										<input type="password" class="form-control" id="new_confirm_password" name="new_confirm_password" value="<?=$new_confirm_password?>" placeholder="Enter your password again"/>
 									</div>
 								</div>
-								<div class="row form-group">
+								<div class="form-group row">
 									<div class="col-md-4"></div>
 									<div class="col-md-8">
 										<button type="button" class="btn btn-danger" id="btn-signup" value="CONTINUE">CREATE ACCOUNT <i class="icon-double-angle-right icon-large"></i></button>
@@ -278,9 +280,11 @@ $(document).ready(function() {
 function checkEmailExisted(email)
 {
 	var result = false;
+	var p = {};
+	p["email"] = email;
 	$.ajax({
 		type : 'POST',
-		data : { email: email },
+		data : p,
 		url : "<?=site_url('member/check_email_existed')?>",
 		success : function(data){
 			result = data;
@@ -289,6 +293,4 @@ function checkEmailExisted(email)
 	});
 	return result;
 }
-
 </script>
-

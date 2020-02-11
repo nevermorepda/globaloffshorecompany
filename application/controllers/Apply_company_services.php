@@ -244,10 +244,194 @@ class Apply_company_services extends CI_Controller {
 		$id = $this->input->post('id');
 		echo json_encode($this->m_services_fee->load($id));
 	}
+	function login()
+	{
+		$company_service = $this->session->userdata("company_service");
+		
+		if ($company_service == null) {
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}"));
+		}
+		
+		$breadcrumb = array('Member Login' => '');
+		
+		$this->session->set_userdata("return_url", site_url("{$this->util->slug($this->router->fetch_class())}/step1"));
+		
+		$this->load->library('user_agent');
+		$agent = 'Unidentified';
+		if ($this->agent->is_browser()) {
+			$agent = $this->agent->browser();
+		}
+		
+		$view_data = array();
+		$view_data["breadcrumb"] = $breadcrumb;
+		$view_data["agent"] = $agent;
+		
+		$tmpl_content = array();
+		$tmpl_content['meta']['title'] = "Apply Vietnam Visa At The Official Site ".SITE_NAME;
+		$tmpl_content['meta']['description'] = "Apply Vietnam visa online using our secure online form at the official site of ".SITE_NAME.". Get visa approval letters in one working day only!";
+		$tmpl_content['tabindex'] = "{$this->util->slug($this->router->fetch_class())}";
+		$tmpl_content['content'] = $this->load->view("apply/login", $view_data, TRUE);
+		$this->load->view('layout/main', $tmpl_content);
+	}
+	function dologin()
+	{
+		$company_service = $this->session->userdata("company_service");
+		
+		if ($company_service == null) {
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}"));
+		}
+		
+		$task = (!empty($_POST["task"]) ? $_POST["task"] : "login");
+		
+		if ($task == "login")
+		{
+			$email = (!empty($_POST["email"]) ? $_POST["email"] : "");
+			$password = (!empty($_POST["password"]) ? $_POST["password"] : "");
+			
+			$data = new stdClass();
+			$data->email = $email;
+			$data->password = $password;
+			$this->session->set_flashdata("login", $data);
+			
+			$info = new stdClass();
+			$info->username = $email;
+			$info->password = $password;
+			
+			$user = $this->m_user->user($info, 1);
+			
+			if ($user != null) {
+				$this->m_user->login($email, $password);
+			}
+			else {
+				$this->session->set_flashdata("status", "Invalid email or password.");
+				redirect(site_url("{$this->util->slug($this->router->fetch_class())}/login"), "back");
+			}
+		}
+		else if ($task == "register")
+		{
+			$new_title		= (!empty($_POST["new_title"]) ? $_POST["new_title"] : "");
+			$new_fullname	= (!empty($_POST["new_fullname"]) ? $_POST["new_fullname"] : "");
+			$new_email		= (!empty($_POST["new_email"]) ? $_POST["new_email"] : "");
+			$new_password	= (!empty($_POST["new_password"]) ? $_POST["new_password"] : "");
+			$new_phone		= (!empty($_POST["new_phone"]) ? $_POST["new_phone"] : "");
+			
+			$data->new_title = $new_title;
+			$data->new_fullname = $new_fullname;
+			$data->new_email = $new_email;
+			$data->new_password = $new_password;
+			$data->new_phone = $new_phone;
+			$this->session->set_flashdata("login", $data);
+			
+			if (empty($new_fullname)) {
+				$this->session->set_flashdata("status", "Full name is required.");
+				redirect(BASE_URL_HTTPS."/{$this->util->slug($this->router->fetch_class())}/login.html", "back");
+			}
+			else if (empty($new_email)) {
+				$this->session->set_flashdata("status", "Email is required.");
+				redirect(BASE_URL_HTTPS."/{$this->util->slug($this->router->fetch_class())}/login.html", "back");
+			}
+			else if ($this->m_user->is_user_exist($new_email)) {
+				$this->session->set_flashdata("status", "This email is already in used. Please input another email address.");
+				redirect(BASE_URL_HTTPS."/{$this->util->slug($this->router->fetch_class())}/login.html", "back");
+			}
+			else if (strlen($new_password) < 6) {
+				$this->session->set_flashdata("status", "Password must be at least 6 characters long.");
+				redirect(BASE_URL_HTTPS."/{$this->util->slug($this->router->fetch_class())}/login.html", "back");
+			}
+			else {
+				$data = array(
+					"title"				=> $new_title,
+					"user_fullname"		=> $new_fullname,
+					"user_login"		=> $new_email,
+					"user_pass"			=> md5($new_password),
+					"password_text"		=> $new_password,
+					"user_email"		=> $new_email,
+					"active"			=> 1,
+					"phone"				=> $new_phone,
+					"user_registered"	=> date($this->config->item("log_date_format")),
+					"client_ip"			=> $this->util->realIP()
+				);
+				$this->m_user->add($data);
+				
+				// Auto Login
+				$info->username = $new_email;
+				$info->password = $new_password;
+				
+				$user = $this->m_user->user($info);
+				
+				if ($user != null) {
+					$this->m_user->login($new_email, $new_password);
+					
+					// SEND MAIL TO USER
+					$tpl_data = array(
+						"FULLNAME"	=> $user->user_fullname,
+						"EMAIL"		=> $user->user_login,
+						"PASSWORD"	=> $user->password_text,
+					);
+					
+					$message = $this->mail_tpl->register_successful($tpl_data);
+					
+					// Send to SALE Department
+					$mail = array(
+						"subject"		=> "Registration Successful - ".SITE_NAME,
+						"from_sender"	=> MAIL_INFO,
+						"name_sender"	=> $user->user_fullname,
+						"to_receiver"	=> $user->user_email,
+						"message"		=> $message
+					);
+					$this->mail->config($mail);
+					$this->mail->sendmail();
+				} else {
+					$this->session->set_flashdata("error", "Invalid email or password.");
+					redirect(site_url("{$this->util->slug($this->router->fetch_class())}/login"), "back");
+				}
+			}
+		}
+		
+		if ($user != null) {
+			// if (empty($step1->contact_title)) {
+			// 	$step1->contact_title = $user->title;
+			// }
+			// if (empty($step1->contact_fullname)) {
+			// 	$step1->contact_fullname = $user->user_fullname;
+			// }
+			// if (empty($step1->contact_email)) {
+			// 	$step1->contact_email = $user->user_email;
+			// }
+			// if (empty($step1->contact_phone)) {
+			// 	$step1->contact_phone = $user->phone;
+			// }
+			
+			// // Re-calculate the total fee
+			// $step1->vip_discount = $this->vip()->discount;
+			
+			// if ($step1->discount > 0) {
+			// 	$step1->vip_discount = 0;
+			// }
+			
+			// if ($step1->visa_type == "6mm" || $step1->visa_type == "1ym") {
+			// 	$step1->vip_discount = 0;
+			// }
+			
+			// $step1->total_fee = $step1->total_service_fee + $step1->total_rush_fee + $step1->business_visa_fee + $step1->private_visa_fee + $step1->full_package_total_fee + $step1->fast_checkin_total_fee + $step1->car_total_fee;
+			// if ($step1->discount_unit == "USD") {
+			// 	$step1->total_fee = $step1->total_fee - $step1->discount;
+			// } else {
+			// 	//$step1->total_fee = $step1->total_fee - $step1->total_service_fee * $step1->discount/100;
+			// 	$step1->total_fee = $step1->total_fee - round($step1->total_service_fee * $step1->discount/100);
+			// }
+			// //$step1->total_fee = $step1->total_fee - $step1->total_service_fee * $step1->vip_discount/100;
+			// $step1->total_fee = $step1->total_fee - round($step1->total_service_fee * $step1->vip_discount/100);
+			
+			$this->session->set_userdata("company_service", $company_service);
+			
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}/step1"));
+		}
+	}
 	public function step1() {
 		$company_service = $this->session->userdata("company_service");
 		if ($company_service == NULL) {
-			redirect(site_url("apply-company-services"));
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}"));
 		}
 		if (!empty($_POST)) {
 			$jurisdiction = $this->input->post('jurisdiction');
@@ -281,6 +465,7 @@ class Apply_company_services extends CI_Controller {
 			$company_service->jurisdiction = $jurisdiction;
 		}
 		$this->session->set_userdata("company_service", $company_service);
+		$this->util->requireUserLogin("{$this->util->slug($this->router->fetch_class())}/login");
 		$view_data = array();
 		$view_data['company_service'] 	= $company_service;
 		
@@ -323,6 +508,9 @@ class Apply_company_services extends CI_Controller {
 				array_push($address_detail, $address);
 			}
 			$company_service->address_detail = $address_detail;
+		}
+		if (!$this->util->checkUserLogin()) {
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}/login"));
 		}
 		$this->session->set_userdata("company_service", $company_service);
 
@@ -390,7 +578,9 @@ class Apply_company_services extends CI_Controller {
 			$company_service->req_agent_zipcode 			= $this->input->post('req_agent_zipcode');
 		}
 		$this->session->set_userdata("company_service", $company_service);
-
+		if (!$this->util->checkUserLogin()) {
+			redirect(site_url("{$this->util->slug($this->router->fetch_class())}/login"));
+		}
 		$view_data = array();
 		$view_data['company_service'] 	= $company_service;
 		$view_data['service_id'] 		= $this->service_id;
@@ -871,7 +1061,7 @@ class Apply_company_services extends CI_Controller {
 			die();
 		}
 		
-		$breadcrumb = array('Apply Visa' => site_url('apply-visa'), '1. Visa Options' => site_url('apply-visa/step1'), '2. Applicant Details' => site_url('apply-visa/step2'), '3. Review & Payment' => site_url('apply-visa/step3'), 'Apply Successful' => '');
+		$breadcrumb = array('Apply Visa' => site_url('{$this->util->slug($this->router->fetch_class())}'), '1. Visa Options' => site_url('{$this->util->slug($this->router->fetch_class())}/step1'), '2. Applicant Details' => site_url('{$this->util->slug($this->router->fetch_class())}/step2'), '3. Review & Payment' => site_url('{$this->util->slug($this->router->fetch_class())}/step3'), 'Apply Successful' => '');
 		
 		$total_fee = $booking->total_fee - (($booking->full_package) ? ($booking->stamp_fee * $booking->group_size) : 0);
 		
@@ -888,7 +1078,7 @@ class Apply_company_services extends CI_Controller {
 		$tmpl_content["transaction_name"]		= $booking->visa_type;
 		$tmpl_content["transaction_category"]	= ($booking->rush_type == 1) ? "Urgent" : (($booking->rush_type == 2) ? "Emergency" : (($booking->rush_type == 3) ? "Holiday" : (($booking->rush_type == 4) ? "TET Holiday" : "Normal")));
 		$tmpl_content["transaction_quantity"]	= $booking->group_size;
-		$tmpl_content["tabindex"] = "apply-visa";
+		$tmpl_content["tabindex"] = "{$this->util->slug($this->router->fetch_class())}";
 		$tmpl_content["content"] = $this->load->view("apply/successful", $view_data, TRUE);
 		$this->load->view('layout/view', $tmpl_content);
 	}

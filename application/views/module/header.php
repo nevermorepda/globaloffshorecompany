@@ -30,7 +30,7 @@
 						</a>
 					</li>
 					<li>
-						<a class="btn-get-started" href="">
+						<a class="btn-get-started" href="<?=site_url('apply-company-services')?>">
 							GET STARTED NOW
 						</a>
 					</li>
@@ -72,7 +72,7 @@
 		$(this).css('display', 'none');
 	});
 </script>
-<div class="menu" <?=(in_array($this->util->slug($this->router->fetch_class()),array('apply-company-services')) ? 'style="border-bottom: 3px solid #b21f1f;"' : '')?>>
+<div class="menu" <?=(in_array($this->util->slug($this->router->fetch_class()),array('apply-company-services','member')) ? 'style="border-bottom: 3px solid #b21f1f;"' : '')?>>
 	<div class="container">
 		<div class="clearfix">
 			<a href="<?=BASE_URL?>"><img src="<?=IMG_URL?>logo.png" class="float-left logo" alt=""></a>

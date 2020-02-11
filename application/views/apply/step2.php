@@ -3,6 +3,8 @@
 	$loc = new IP2Location(FCPATH . '/application/libraries/ip2location/databases/IP-COUNTRY-SAMPLE.BIN', IP2Location::FILE_IO);
 	$country_name = $loc->lookup($this->util->realIP(), IP2Location::COUNTRY_NAME);
 	$nation = $this->m_nation->load($company_service->jurisdiction);
+
+	$user_login = $this->session->userdata('user');
 ?>
 <div class="apply">
 	<div class="container">
@@ -32,10 +34,10 @@
 												<option value="Ms">Ms</option>
 												<option value="Mrs">Mrs</option>
 											</select>
-											<script> $("#new_title").val('<?=!empty($company_service->req_ship_title) ? $company_service->req_ship_title : 'Mr'?>'); </script>
+											<script> $("#new_title").val('<?=!empty($company_service->req_ship_title) ? $company_service->req_ship_title : $user_login->title?>'); </script>
 										</div>
 										<div class="col-xs-8 col-sm-8 col-md-8 new-fullname">
-											<input type="text" id="req_ship_fullname" name="req_ship_fullname" class="form-input form-control" placeholder="Full name*" value="<?=$company_service->req_ship_fullname?>">
+											<input type="text" id="req_ship_fullname" name="req_ship_fullname" class="form-input form-control" placeholder="Full name*" value="<?=!empty($company_service->req_ship_fullname) ? $company_service->req_ship_fullname : $user_login->user_fullname?>">
 											<div class="wrap-error"></div>
 										</div>
 									</div>
@@ -61,7 +63,7 @@
 									<div class="wrap-error"></div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-									<input type="text" id="req_ship_day_phone" name="req_ship_day_phone" class="form-input form-control keyup-number" placeholder="Day Telephone*" value="<?=$company_service->req_ship_day_phone?>">
+									<input type="text" id="req_ship_day_phone" name="req_ship_day_phone" class="form-input form-control keyup-number" placeholder="Day Telephone*" value="<?=!empty($company_service->req_ship_day_phone) ? $company_service->req_ship_day_phone : $user_login->phone?>">
 									<div class="wrap-error"></div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -77,7 +79,7 @@
 									<div class="wrap-error"></div>
 								</div>
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<input type="text" id="req_ship_email" name="req_ship_email" class="form-input form-control" placeholder="Email (Email will remain private)*" value="<?=$company_service->req_ship_email?>">
+									<input type="text" id="req_ship_email" name="req_ship_email" class="form-input form-control" placeholder="Email (Email will remain private)*" value="<?=!empty($company_service->req_ship_email) ? $company_service->req_ship_email : $user_login->user_email?>">
 									<div class="wrap-error"></div>
 								</div>
 							</div>
