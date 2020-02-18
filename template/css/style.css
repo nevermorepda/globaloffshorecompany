@@ -1729,6 +1729,8 @@ footer .home-bottom {
 	padding: 40px 20px;
 	color: #fff;
 	margin-bottom: 40px;
+	position: relative;
+	overflow: hidden;
 }
 footer .home-bottom h3 {
 	font-size: 30px;

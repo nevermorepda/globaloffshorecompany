@@ -2,13 +2,15 @@
 <div class="">
 	<div class="container">
 		<div class="home-bottom">
+			<div style="position: absolute;width: 100%;height: 342px;top: 0;left: 0;background-image: linear-gradient(to right, transparent 10%, #00000091 100%);"></div>
 			<div class="row">
-				<div class="col-md-6"></div>
-				<div class="col-md-6">
+				<div class="col-md-5"></div>
+				<div class="col-md-7">
 					<h3>GET STARTED NOW</h3>
-					<p>If you have any questions, or would like to learn more about taking the next steps with Global Offshore Company, please select one of the options below.</p>
+					<p style="font-size: 15px;">If you have any questions, or would like to learn more about taking the next steps with Global Offshore Company, please select one of the options below.</p>
 					<div class="apply-link">- For Company Formation Service, please <a target="_blank" href="<?=site_url("apply-company-services")?>">click here</a> to select Jurisdiction. </div>
-					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.</div>
+					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.<br>
+					We will happily guide you through our services and also advise you on the solutions that would best suite your needs.</div>
 					<div class="apply-link">- To download the Due Diligence Form, please <a target="_blank" href="#">click here</a>.</div>
 				</div>
 			</div>
