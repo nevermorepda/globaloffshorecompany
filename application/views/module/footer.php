@@ -9,8 +9,8 @@
 					<h3>GET STARTED NOW</h3>
 					<p style="font-size: 15px;">If you have any questions, or would like to learn more about taking the next steps with Global Offshore Company, please select one of the options below.</p>
 					<div class="apply-link">- For Company Formation Service, please <a target="_blank" href="<?=site_url("apply-company-services")?>">click here</a> to select Jurisdiction. </div>
-					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.<br>
-					We will happily guide you through our services and also advise you on the solutions that would best suite your needs.</div>
+					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.</div>
+					<div class="apply-link" style="padding-left: 25px;">We will happily guide you through our services and also advise you on the solutions that would best suite your needs.</div>
 					<div class="apply-link">- To download the Due Diligence Form, please <a target="_blank" href="#">click here</a>.</div>
 				</div>
 			</div>
