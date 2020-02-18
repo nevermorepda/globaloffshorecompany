@@ -1698,4 +1698,17 @@ class Mail_tpl {
 	function text_mail(){
 		return '<p>failure</p>';
 	}
+	function contac_apply($tpl_data)
+	{
+		$content = '<div>
+						<p> Service: '.$tpl_data["TITLE"].'</p>
+						<p> Email: '.$tpl_data["EMAIL"].'</p>
+						<p> Phone: '.$tpl_data["PHONE"].'</p>
+						<p> Message: '.$tpl_data["CONTENT"].'</p>
+						<br>
+						<p>Best Regards,</p>
+						<p>('.$tpl_data["FULLNAME"].')</p>
+					</div>';
+		return $this->template($content);
+	}
 }

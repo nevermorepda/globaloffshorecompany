@@ -20,26 +20,46 @@ class Contact extends CI_Controller {
 		{
 			// Save
 			$fullname = $this->util->value($this->input->post("fullname"), "");
+			$services_title = $this->util->value($this->input->post("services_title"), "");
 			$email = $this->util->value($this->input->post("email"), "");
 			$phone = $this->util->value($this->input->post("phone"), "");
 			$content = $this->util->value($this->input->post("message"), "");
-			$security_code = $this->util->value($this->input->post("security_code"), "");
+			// $security_code = $this->util->value($this->input->post("security_code"), "");
 			
-			if (strtoupper($security_code) == strtoupper($this->util->getSecurityCode()))
-			{
+			// if (strtoupper($security_code) == strtoupper($this->util->getSecurityCode()))
+			// {
 				// Inform by mail
+				$tpl_data = array(
+					"FULLNAME"	=> $fullname,
+					"EMAIL"		=> $email,
+					"PHONE"		=> $phone,
+					"TITLE"		=> $services_title,
+					"CONTENT"	=> $content,
+				);
+				
+				$message = $this->mail_tpl->contac_apply($tpl_data);
+				// $mail = array(
+	   //          		"subject"		=> "[Contact] ".$fullname." - ''{$services_title}''",
+				// 		"from_sender"	=> $email,
+	   //          		"name_sender"	=> $fullname,
+				// 		"to_receiver"   => MAIL_INFO, 
+				// 		"message"       => $message
+				// );
+				// $this->mail->config($mail);
+				// $this->mail->sendmail();
+
 				$mail = array(
-	            		"subject"		=> "[Contact] ".$fullname,
-						"from_sender"	=> $email,
+	            		"subject"		=> "[Contact] ".$fullname." - ''{$services_title}''",
+						"from_sender"	=> $MAIL_INFO,
 	            		"name_sender"	=> $fullname,
-						"to_receiver"   => MAIL_INFO, 
-						"message"       => $content
+						"to_receiver"   => $email, 
+						"message"       => $message
 				);
 				$this->mail->config($mail);
 				$this->mail->sendmail();
 				
 				$this->session->set_flashdata("success", "Your message has been sent successful.");
-			}
+			// }
 		}
 		
 		redirect("contact", "back");

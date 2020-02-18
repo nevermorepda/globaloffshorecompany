@@ -6,8 +6,10 @@
 				<div class="col-md-6"></div>
 				<div class="col-md-6">
 					<h3>GET STARTED NOW</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-					<div style="font-size: 20px;">Choose <a href="">Service</a> or <a href="">Jurisdition</a><br><a href="">Set up Form</a></div>
+					<p>If you have any questions, or would like to learn more about taking the next steps with Global Offshore Company, please select one of the options below.</p>
+					<div class="apply-link">- For Company Formation Service, please <a target="_blank" href="<?=site_url("apply-company-services")?>">click here</a> to select Jurisdiction. </div>
+					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.</div>
+					<div class="apply-link">- To download the Due Diligence Form, please <a target="_blank" href="#">click here</a>.</div>
 				</div>
 			</div>
 		</div>

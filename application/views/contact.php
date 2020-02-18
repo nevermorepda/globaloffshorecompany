@@ -31,7 +31,28 @@
 							<input type="text" id="fullname" name="fullname" class="full-width" value="" required="" placeholder="Name">
 						</div>
 						<div class="col-md-6">
+							<select name="services_title" id="services_title">
+								<option value="">Interested in</option>
+								<option value="Company Formation">Company Formation</option>
+								<option value="Company Directorship / Secretary / Nominee">Company Directorship / Secretary / Nominee</option>
+								<option value="Company Maintenance / Administration">Company Maintenance / Administration</option>
+								<option value="Company Dissolution / Restoration">Company Dissolution / Restoration</option>
+								<option value="Serviced Office / Virtual Office">Serviced Office / Virtual Office</option>
+								<option value="Accounting & Tax">Accounting & Tax</option>
+								<option value="Foundation & Trust">Foundation & Trust</option>
+								<option value="Bank Account Opening">Bank Account Opening</option>
+								<option value="Visa & Immigrant ">Visa & Immigrant </option>
+								<option value="Others">Others</option>
+							</select>
+						</div>
+						<script type="text/javascript">
+							$('#services_title').val('')
+						</script>
+						<div class="col-md-6">
 							<input type="text" id="email" name="email" class="full-width" value="" required="" placeholder="Email">
+						</div>
+						<div class="col-md-6">
+							<input type="text" id="phone" name="phone" class="full-width" value="" required="" placeholder="Phone">
 						</div>
 						<div class="col-md-12">
 							<textarea id="message" name="message" class="full-width" placeholder="Message" required=""></textarea>
@@ -196,6 +217,20 @@ $(document).ready(function() {
 			err++;
 		} else {
 			$("#fullname").removeClass("error");
+		}
+		if ($("#services_title").val() == "") {
+			$("#services_title").addClass("error");
+			msg.push("Interested in is required.");
+			err++;
+		} else {
+			$("#services_title").removeClass("error");
+		}
+		if ($("#phone").val() == "") {
+			$("#phone").addClass("error");
+			msg.push("Your phone is required.");
+			err++;
+		} else {
+			$("#phone").removeClass("error");
 		}
 
 		if ($("#email").val() == "") {
