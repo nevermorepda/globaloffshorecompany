@@ -11,7 +11,7 @@
 					<div class="apply-link">- For Company Formation Service, please <a target="_blank" href="<?=site_url("apply-company-services")?>">click here</a> to select Jurisdiction. </div>
 					<div class="apply-link">- For more information and comprehensive consultation of other services, please <a target="_blank" href="<?=site_url("contact")?>">Contact Us</a>.</div>
 					<div class="apply-link" style="padding-left: 25px;">We will happily guide you through our services and also advise you on the solutions that would best suite your needs.</div>
-					<div class="apply-link">- To download the Due Diligence Form, please <a target="_blank" href="#">click here</a>.</div>
+					<div class="apply-link">- To download the Due Diligence Form, please <a target="_blank" href="<?=BASE_URL.'/files/upload/file/due-diligence-form-for-individual.pdf'?>">click here</a>.</div>
 				</div>
 			</div>
 		</div>
