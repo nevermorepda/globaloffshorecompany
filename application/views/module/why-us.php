@@ -17,25 +17,25 @@
 						</div>
 						<div class="item">
 							<img src="<?=IMG_URL?>icon-offshore2.png" alt="">
-							<h6>Delicated</h6>
+							<h6>Knowledgeable</h6>
 						</div>
 						<div class="item">
 							<img src="<?=IMG_URL?>icon-offshore3.png" alt="">
-							<h6>Delicated</h6>
+							<h6>Fair Pricing</h6>
 						</div>
 					</div>
 					<div class="list">
 						<div class="item">
 							<img src="<?=IMG_URL?>icon-offshore4.png" alt="">
-							<h6>Delicated</h6>
+							<h6>Experienced</h6>
 						</div>
 						<div class="item">
 							<img src="<?=IMG_URL?>icon-offshore5.png" alt="">
-							<h6>Delicated</h6>
+							<h6>Multinational</h6>
 						</div>
 						<div class="item">
 							<img src="<?=IMG_URL?>icon-offshore6.png" alt="">
-							<h6>Delicated</h6>
+							<h6>Client Focus</h6>
 						</div>
 					</div>
 				</div>

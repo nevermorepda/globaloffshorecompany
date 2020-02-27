@@ -4,6 +4,7 @@ class News extends CI_Controller {
 
 	public function index($alias=null)
 	{
+		$this->output->cache(CACHE_TIME);
 		$breadcrumb = array("News" => site_url("{$this->util->slug($this->router->fetch_class())}"));
 		if (!empty($alias)) {
 			// $this->output->cache(CACHE_TIME);

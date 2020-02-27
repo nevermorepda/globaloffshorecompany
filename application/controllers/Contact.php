@@ -5,7 +5,7 @@ class Contact extends CI_Controller {
 	public function index()
 	{
 		// $this->util->block_ip();
-		// $this->output->cache(CACHE_TIME);
+		$this->output->cache(CACHE_TIME);
 		
 		$tmpl_content = array();
 		$tmpl_content['meta']['title'] = "Contact Us";

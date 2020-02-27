@@ -133,11 +133,11 @@
 									News
 								</a>
 							</li>
-							<li>
+							<!-- <li>
 								<a href="<?=site_url("blogs")?>" class="transition">
 									Blog
 								</a>
-							</li>
+							</li> -->
 						</ul>
 					</li>
 				</ul>
@@ -175,7 +175,7 @@
 				<a>RESOURCES</a>
 				<ul class="sub-menu">
 					<li class="sub-item"><a href="<?=site_url("news")?>">NEWS</a></li>
-					<li class="sub-item"><a href="<?=site_url("blogs")?>">BLOG</a></li>
+					<!-- <li class="sub-item"><a href="<?=site_url("blogs")?>">BLOG</a></li> -->
 				</ul>
 				<i class="fas fa-angle-down"></i>
 			</li>

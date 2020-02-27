@@ -4,6 +4,7 @@ class Jurisdictions extends CI_Controller {
 
 	public function index($region, $nation_alias=null)
 	{
+		$this->output->cache(CACHE_TIME);
 		if (!empty($region)) {
 			if (!empty($nation_alias)) {
 				$info = new stdClass();

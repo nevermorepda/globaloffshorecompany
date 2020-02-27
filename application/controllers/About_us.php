@@ -6,7 +6,7 @@ class About_us extends CI_Controller {
 	{
 		$breadcrumb = array("Abouts us" => site_url("{$this->util->slug($this->router->fetch_class())}"));
 
-		// $this->output->cache(CACHE_TIME);
+		$this->output->cache(CACHE_TIME);
 
 		$item = $this->m_content->load(210);
 		
