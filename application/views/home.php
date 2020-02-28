@@ -508,7 +508,7 @@
 			<div class="d-none d-lg-block wrap-pc">
 				<div class="row">
 					<div class="col-md">
-						<div class="item" st="0" item="0" style="background-image: url(<?=IMG_URL?>region/asia-pacific.jpg);">
+						<div class="item" st="0" item="0" style="background-image: url(<?=IMG_URL?>region/300xasia-pacific.jpg);">
 							<div class="item-title">ASIA PACIFIC <hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
@@ -516,7 +516,7 @@
 						</div>
 					</div>
 					<div class="col-md">
-						<div class="item" st="0" item="1" style="background-image: url(<?=IMG_URL?>region/europe.jpg);">
+						<div class="item" st="0" item="1" style="background-image: url(<?=IMG_URL?>region/300xeurope.jpg);">
 							<div class="item-title">EUROPE <hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
@@ -524,7 +524,7 @@
 						</div>
 					</div>
 					<div class="col-md">
-						<div class="item" st="0" item="2" style="background-image: url(<?=IMG_URL?>region/america-carribean.jpg);">
+						<div class="item" st="0" item="2" style="background-image: url(<?=IMG_URL?>region/300xamerica-carribean.jpg);">
 							<div class="item-title">AMERICA - CARRIBEAN<hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
@@ -532,7 +532,7 @@
 						</div>
 					</div>
 					<div class="col-md">
-						<div class="item" st="0" item="3" style="background-image: url(<?=IMG_URL?>region/middle-east.jpg);">
+						<div class="item" st="0" item="3" style="background-image: url(<?=IMG_URL?>region/300xmiddle-east.jpg);">
 							<div class="item-title">MIDDLE EAST <hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
@@ -540,7 +540,7 @@
 						</div>
 					</div>
 					<div class="col-md">
-						<div class="item" st="0" item="4" style="background-image: url(<?=IMG_URL?>region/africa.jpg);">
+						<div class="item" st="0" item="4" style="background-image: url(<?=IMG_URL?>region/300xafrica.jpg);">
 							<div class="item-title">AFRICA <hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
