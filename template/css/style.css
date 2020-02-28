@@ -1038,11 +1038,17 @@ section .services .info-service .info-item-child {
 	width: 100%;
 	padding: 10px 0;
 }
+section .services .info-service .info-item-child:hover img {
+	box-shadow: 0 0 10px #000;
+}
 section .services .info-service .info-item-child .head-info {
 
 }
 section .services .info-service .info-item-child img {
 	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 section .services .info-service .info-item-child .info-item {
 	display: table-cell;
@@ -1305,7 +1311,7 @@ section .jurisdictions .info-jurisdictions {
 }
 section .jurisdictions .info-jurisdictions .bg-info-jurisdictions {
 	position: relative;
-	padding: 50px 30px 30px 30px;
+	padding: 30px;
 	background: #e1e1e1;
 	width: 75%;
 }
@@ -1345,6 +1351,9 @@ section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item .i
 section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item:hover h6 {
 	color: #b21f1f !important;
 }
+section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item:hover img {
+	box-shadow: 0 0 10px #000;
+}
 section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item .info h6 {
 	font-size: 16px;
 	margin: 0;
@@ -1361,6 +1370,7 @@ section .jurisdictions .info-jurisdictions .info-jurisdictions-title {
 	width: 60px;
 	height: 60px;
 	border: 1.5px solid #808080;
+	margin-bottom: 20px;
 }
 section .jurisdictions .info-jurisdictions .info-jurisdictions-title h5 {
 	position: absolute;

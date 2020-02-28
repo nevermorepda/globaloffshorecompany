@@ -755,17 +755,25 @@ class Syslog extends CI_Controller {
 		$task = $this->util->value($this->input->post("task"), "");
 		if (!empty($task)) {
 			if ($task == "save") {
-				$name		= $this->util->value($this->input->post("name"), "");
-				$active		= $this->util->value($this->input->post("active"), 1);
+				$name			= $this->util->value($this->input->post("name"), "");
+				$icon_path 		= !empty($_FILES['icon_path']['name']) ? explode('.',$_FILES['icon_path']['name']) : $this->m_services_tabs->load($id)->icon_path;
+				$active			= $this->util->value($this->input->post("active"), 1);
 				
 				$alias = $this->util->slug($name);
 				$data = array (
-					"name"		=> $name,
-					"alias"		=> $alias,
-					"service_id"=> $service_id,
-					"active"	=> $active
+					"name"			=> $name,
+					"alias"			=> $alias,
+					"icon_path"		=> $icon_path,
+					"service_id"	=> $service_id,
+					"active"		=> $active
 				);
+				if (!empty($_FILES['icon_path']['name'])){
+					$data['icon_path'] = "/files/upload/icon/{$this->util->slug($icon_path[0])}.{$icon_path[1]}";
+				}
+				$file_deleted = '';
+
 				if ($action == "add") {
+					$file_deleted = "./files/upload/icon/{$this->m_services_tabs->load($id)->name}";
 					$data['order_num'] = $this->m_services_tabs->get_next_value('order_num');
 					$this->m_services_tabs->add($data);
 				}
@@ -773,6 +781,11 @@ class Syslog extends CI_Controller {
 					$where = array("id" => $id);
 					$this->m_services_tabs->update($data, $where);
 				}
+				$path = "./files/upload/icon";
+
+				$allow_type = 'JPG|PNG|jpg|jpeg|png';
+				$this->util->upload_file($path,'icon_path',$file_deleted,$allow_type,$this->util->slug($icon_path[0]).'.'.$icon_path[1],0);
+				
 				$this->create_sitemap();
 				redirect(site_url("syslog/services/edit/{$service->id}"));
 			}

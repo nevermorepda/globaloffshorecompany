@@ -223,7 +223,7 @@
 						<div class="col-sm-4">
 							<div class="info-item-child">
 								<div style="display: table-cell;vertical-align: middle;width:43px">
-									<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
+									<img src="<?='.'.$service_one[$i]->icon_path?>" alt="<?=$service_one[$i]->name?>">
 								</div>
 								<div class="info-item">
 									<a href="<?=site_url("our-services/{$services[0]->alias}/{$service_one[$i]->alias}")?>"><h6><?=$service_one[$i]->name?></h6></a>
@@ -277,7 +277,7 @@
 						<div class="col-sm-4">
 							<div class="info-item-child">
 								<div style="display: table-cell;vertical-align: middle;width:43px">
-									<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
+									<img src="<?='.'.$service_three[$i]->icon_path?>" alt="<?=$service_three[$i]->name?>">
 								</div>
 								<div class="info-item">
 									<a href="<?=site_url("our-services/{$services[2]->alias}/{$service_three[$i]->alias}")?>"><h6><?=$service_three[$i]->name?></h6></a>
@@ -306,7 +306,7 @@
 						<div class="col-sm-4">
 							<div class="info-item-child">
 								<div style="display: table-cell;vertical-align: middle;width:43px">
-									<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
+									<img src="<?='.'.$service_four[$i]->icon_path?>" alt="<?=$service_four[$i]->name?>">
 								</div>
 								<div class="info-item">
 									<a href="<?=site_url("our-services/{$services[3]->alias}/{$service_four[$i]->alias}")?>"><h6><?=$service_four[$i]->name?></h6></a>
@@ -335,7 +335,7 @@
 						<div class="col-sm-4">
 							<div class="info-item-child">
 								<div style="display: table-cell;vertical-align: middle;width:43px">
-									<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
+									<img src="<?='.'.$service_five[$i]->icon_path?>" alt="<?=$service_five[$i]->name?>">
 								</div>
 								<div class="info-item">
 									<a href="<?=site_url("our-services/{$services[4]->alias}/{$service_five[$i]->alias}")?>"><h6><?=$service_five[$i]->name?></h6></a>
@@ -568,7 +568,7 @@
 										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
 										<div class="info">
 											<h6><?=$item->name?></h6>
-											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+											<p><?=$item->description?></p>
 										</div>
 									</div>
 								</a>
@@ -596,7 +596,7 @@
 										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
 										<div class="info">
 											<h6><?=$item->name?></h6>
-											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+											<p><?=$item->description?></p>
 										</div>
 									</div>
 								</a>
@@ -624,7 +624,7 @@
 										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
 										<div class="info">
 											<h6><?=$item->name?></h6>
-											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+											<p><?=$item->description?></p>
 										</div>
 									</div>
 								</a>
@@ -652,7 +652,7 @@
 										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
 										<div class="info">
 											<h6><?=$item->name?></h6>
-											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+											<p><?=$item->description?></p>
 										</div>
 									</div>
 								</a>
@@ -680,7 +680,7 @@
 										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
 										<div class="info">
 											<h6><?=$item->name?></h6>
-											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+											<p><?=$item->description?></p>
 										</div>
 									</div>
 								</a>

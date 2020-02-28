@@ -388,7 +388,7 @@ class Util {
 		
 		return $rush;
 	}
-	public function upload_file($file_path=null,$name=null,$file_deleted=null,$allow_type='rar|zip|pdf|doc|docx|PDF|DOC|DOCX|xls|xlsx|csv',$file_name)
+	public function upload_file($file_path=null,$name=null,$file_deleted=null,$allow_type='rar|zip|pdf|doc|docx|PDF|DOC|DOCX|xls|xlsx|csv',$file_name,$create_thumb=1)
 	{
 		$this->config = array(
 			'upload_path'	=> $file_path,
@@ -400,13 +400,15 @@ class Util {
 		$this->ci->load->library("upload", $this->config);
 		if (!empty($name)){
 			if($this->ci->upload->do_upload($name)){
-				$config1['source_image'] = $this->ci->upload->upload_path.$this->ci->upload->file_name;
-				$config1['new_image'] =  str_replace('./','', $file_path).'/300x'.$file_name;
-				$config1['maintain_ratio'] = TRUE;
-				$config1['width'] = 300;
-				$this->ci->load->library('image_lib', $config1); 
-				if ( ! $this->ci->image_lib->resize()){ 
-					$this->ci->session->set_flashdata('message', $this->ci->image_lib->display_errors('', ''));
+				if ($create_thumb == 1) {
+					$config1['source_image'] = $this->ci->upload->upload_path.$this->ci->upload->file_name;
+					$config1['new_image'] =  str_replace('./','', $file_path).'/300x'.$file_name;
+					$config1['maintain_ratio'] = TRUE;
+					$config1['width'] = 300;
+					$this->ci->load->library('image_lib', $config1); 
+					if ( ! $this->ci->image_lib->resize()){ 
+						$this->ci->session->set_flashdata('message', $this->ci->image_lib->display_errors('', ''));
+					}
 				}
 
 				if (file_exists($file_deleted)){

@@ -4,7 +4,7 @@
 		<? if (empty($item) || !sizeof($item)) { ?>
 		<p class="help-block">Item not found.</p>
 		<? } else { ?>
-		<form id="frm-admin" name="adminForm" action="" method="POST">
+		<form id="frm-admin" name="adminForm" action="" method="POST" enctype="multipart/form-data">
 			<input type="hidden" id="task" name="task" value="">
 			<table class="table table-bordered">
 				<tr>
@@ -14,6 +14,15 @@
 				<tr>
 					<td class="table-head text-right" width="10%">URL alias</td>
 					<td><input type="text" id="alias" name="alias" class="form-control" value="<?=$item->alias?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Icon</td>
+					<td>
+						<label class="wrap-upload-icon" style="background: url('<?=BASE_URL?><?=!empty($item->icon_path) ? $item->icon_path : ''?>') no-repeat">
+							<input type="file" name="icon_path" id="file-upload" value="<?=!empty($item->name) ? $item->name : ''?>">
+							<i class="fa fa-cloud-upload" aria-hidden="true"></i>
+						</label>
+					</td>
 				</tr>
 				<tr>
 					<td class="table-head text-right" width="10%">Content</td>
@@ -464,6 +473,24 @@
 </script>
 <script>
 $(document).ready(function() {
+	$("#file-upload").change(function() {
+		readURL(this);
+	});
+	
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				$('.wrap-upload-icon').css({
+					"background-image": "url('"+e.target.result+"')"
+				});
+				$('.wrap-upload-icon > i').css({
+					"color": "rgba(52, 73, 94, 0.38)"
+				});
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
 	$(".btn-save").click(function(){
 		submitButton("save");
 	});
