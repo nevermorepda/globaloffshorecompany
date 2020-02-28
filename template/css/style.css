@@ -1295,7 +1295,7 @@ section .jurisdictions .info-jurisdictions .bank-account h6 {
 	font-size: 15px;
 }
 section .jurisdictions .info-jurisdictions {
-	background-image: url(../images/bg-service.jpg);
+	/* background-image: url(../images/bg-service.jpg); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	font-size: 15px;
@@ -1332,12 +1332,28 @@ section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item {
 section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item img {
 	display: table-cell;
 	vertical-align: middle;
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
 }
-section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item h6 {
+section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item .info {
 	display: table-cell;
 	vertical-align: middle;
 	padding-left: 8px;
+}
+section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item:hover h6 {
+	color: #b21f1f !important;
+}
+section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item .info h6 {
 	font-size: 16px;
+	margin: 0;
+	color: #252525;
+	font-weight: bold;
+}
+section .jurisdictions .info-jurisdictions .bg-info-jurisdictions .child-item .info p {
+	color: #4c4c4c;
+	line-height: 18px;
 }
 section .jurisdictions .info-jurisdictions .info-jurisdictions-title {
 	position: relative;

@@ -549,244 +549,143 @@
 					</div>
 				</div>
 				<!--------->
-				<div class="info-jurisdictions info-jurisdictions-0">
+				<div class="info-jurisdictions info-jurisdictions-0" style="background-image: url(<?=IMG_URL?>region/asia-pacific.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
 							<h5>ASIA PACIFIC</h5>
 							<p>Global Offshore</p>
 						</div>
-						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<?
+							$info = new stdClass();
+							$info->region = 'asia-pacific';
+							$items = $this->m_jurisdictions->items($info);
+						?>
 						<div class="row">
+							<? foreach ($items as $item) { ?>
 							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
+								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+									<div class="child-item">
+										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+										<div class="info">
+											<h6><?=$item->name?></h6>
+											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+										</div>
+									</div>
+								</a>
 							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="info-jurisdictions info-jurisdictions-1">
+				<div class="info-jurisdictions info-jurisdictions-1" style="background-image: url(<?=IMG_URL?>region/europe.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
 							<h5>EUROPE</h5>
 							<p>Global Offshore</p>
 						</div>
-						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<?
+							$info = new stdClass();
+							$info->region = 'europe';
+							$items = $this->m_jurisdictions->items($info);
+						?>
 						<div class="row">
+							<? foreach ($items as $item) { ?>
 							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
+								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+									<div class="child-item">
+										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+										<div class="info">
+											<h6><?=$item->name?></h6>
+											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
+										</div>
+									</div>
+								</a>
 							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="child-item">
-									<img src="<?=IMG_URL?>glas.png" alt="">
-									<h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</h6>
-								</div>
-							</div>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="info-jurisdictions info-jurisdictions-2">
+				<div class="info-jurisdictions info-jurisdictions-2" style="background-image: url(<?=IMG_URL?>region/america-carribean.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
 							<h5>AMERICAS</h5>
 							<p>Global Offshore</p>
 						</div>
-						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<?
+							$info = new stdClass();
+							$info->region = 'america-carribean';
+							$items = $this->m_jurisdictions->items($info);
+						?>
 						<div class="row">
-							<div class="col-sm-4">
-								<div class="wrap-info-item">
-									<div class="info-item">
-										<div class="head-info">
-											<img src="<?=IMG_URL?>info-service-icon.png" alt="">
-											<h6>Company Formation</h6>
+							<? foreach ($items as $item) { ?>
+							<div class="col-md-6">
+								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+									<div class="child-item">
+										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+										<div class="info">
+											<h6><?=$item->name?></h6>
+											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 									</div>
-								</div>
+								</a>
 							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-2.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-3.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="info-jurisdictions info-jurisdictions-3">
+				<div class="info-jurisdictions info-jurisdictions-3" style="background-image: url(<?=IMG_URL?>region/middle-east.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
 							<h5>MIDDLE EAST</h5>
 							<p>Global Offshore</p>
 						</div>
-						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<?
+							$info = new stdClass();
+							$info->region = 'middle-east';
+							$items = $this->m_jurisdictions->items($info);
+						?>
 						<div class="row">
-							<div class="col-sm-4">
-								<div class="wrap-info-item">
-									<div class="info-item">
-										<div class="head-info">
-											<img src="<?=IMG_URL?>info-service-icon.png" alt="">
-											<h6>Company Formation</h6>
+							<? foreach ($items as $item) { ?>
+							<div class="col-md-6">
+								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+									<div class="child-item">
+										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+										<div class="info">
+											<h6><?=$item->name?></h6>
+											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 									</div>
-								</div>
+								</a>
 							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-2.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-3.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="info-jurisdictions info-jurisdictions-4">
+				<div class="info-jurisdictions info-jurisdictions-4" style="background-image: url(<?=IMG_URL?>region/africa.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
 							<h5>AFRICA</h5>
 							<p>Global Offshore</p>
 						</div>
-						<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						<?
+							$info = new stdClass();
+							$info->region = 'africa';
+							$items = $this->m_jurisdictions->items($info);
+						?>
 						<div class="row">
-							<div class="col-sm-4">
-								<div class="wrap-info-item">
-									<div class="info-item">
-										<div class="head-info">
-											<img src="<?=IMG_URL?>info-service-icon.png" alt="">
-											<h6>Company Formation</h6>
+							<? foreach ($items as $item) { ?>
+							<div class="col-md-6">
+								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+									<div class="child-item">
+										<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+										<div class="info">
+											<h6><?=$item->name?></h6>
+											<p><?=$item->description?>in reprehenderit in voluptate velit esse cillum dolore eu fugiat </p>
 										</div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
 									</div>
-								</div>
+								</a>
 							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-1.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-2.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-4">
-								<div class="info-item-child">
-									<div style="display: table-cell;vertical-align: middle;">
-										<img src="<?=IMG_URL?>info-service-icon-3.png" alt="">
-									</div>
-									<div class="info-item">
-										<h6>Company Formation</h6>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-									</div>
-								</div>
-							</div>
+							<? } ?>
 						</div>
 					</div>
 				</div>
