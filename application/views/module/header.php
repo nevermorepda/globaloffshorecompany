@@ -146,6 +146,16 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$(window).scroll(function() {
+		$scroll = $(window).scrollTop();
+		if ($scroll > 150){
+			$('.menu').addClass('menu-croll');
+		} else {
+			$('.menu').removeClass('menu-croll');
+		}
+	});
+</script>
 <div id="target-menu" class="menu-mobile transition d-block d-lg-none menu-off">
 	<div class="bg-menu-mobile">
 		<ul class="menu-list">

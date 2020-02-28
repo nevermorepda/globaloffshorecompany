@@ -294,6 +294,13 @@ header .header-top ul li .btn-get-started {
 header .menu {
 	padding: 10px 0;
 }
+header .menu-croll {
+	position: fixed;
+	width: 100%;
+	background: #fff;
+	top: 0;
+	box-shadow: 0 0 10px #4c4c4c;
+}
 header .menu .logo {
 	width: 150px;
 }
