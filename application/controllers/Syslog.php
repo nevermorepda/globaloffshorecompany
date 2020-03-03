@@ -674,6 +674,9 @@ class Syslog extends CI_Controller {
 				$name			= $this->util->value($this->input->post("name"), "");
 				$alias			= $this->util->value($this->input->post("alias"), "");
 				$description	= $this->util->value($this->input->post("description"), "");
+				$meta_title		= $this->util->value($this->input->post("meta_title"), "");
+				$meta_key		= $this->util->value($this->input->post("meta_key"), "");
+				$meta_desc		= $this->util->value($this->input->post("meta_desc"), "");
 				
 				if (empty($alias)) {
 					$alias = $this->util->slug($name);
@@ -683,6 +686,9 @@ class Syslog extends CI_Controller {
 					"name"			=> $name,
 					"alias"			=> $alias,
 					"description"	=> $description,
+					"meta_title"	=> $meta_title,
+					"meta_key"		=> $meta_key,
+					"meta_desc"		=> $meta_desc,
 				);
 				
 				if ($action == "add") {

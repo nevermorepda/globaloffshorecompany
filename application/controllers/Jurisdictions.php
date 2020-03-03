@@ -19,17 +19,14 @@ class Jurisdictions extends CI_Controller {
 				$view_data = array();
 				$view_data['item'] 		= $item;
 				$view_data['tab_details'] 		= $tab_details;
-				// $view_data['tab'] 			= $tab;
-				// $view_data['breadcrumb'] = $breadcrumb;
 				
 				$tmpl_content = array();
-				// $tmpl_content['meta']['title'] = $this->util->getMetaTitle($item);
-				// $tmpl_content['meta']['keywords'] = $item->meta_key;
-				// $tmpl_content['meta']['description'] = $item->meta_desc;
+				$tmpl_content['meta']['title'] = $item->meta_title;
+				$tmpl_content['meta']['keywords'] = $item->meta_key;
+				$tmpl_content['meta']['description'] = $item->meta_desc;
 				$tmpl_content['content'] = $this->load->view("jurisdictions/detail", $view_data, TRUE);
 				$this->load->view('layout/main', $tmpl_content);
 			} else {
-				// $breadcrumb = array("Why us" => site_url("{$this->util->slug($this->router->fetch_class())}"));
 				$info = new stdClass();
 				$info->region = $region;
 				$items = $this->m_jurisdictions->items($info);
@@ -37,11 +34,9 @@ class Jurisdictions extends CI_Controller {
 				$view_data = array();
 				$view_data['items'] 		= $items;
 				$view_data['region'] 		= $region;
-				// $view_data['tab'] 			= $tab;
-				// $view_data['breadcrumb'] = $breadcrumb;
 				
 				$tmpl_content = array();
-				// $tmpl_content['meta']['title'] = $this->util->getMetaTitle($item);
+				// $tmpl_content['meta']['title'] =  $item->meta_title;
 				// $tmpl_content['meta']['keywords'] = $item->meta_key;
 				// $tmpl_content['meta']['description'] = $item->meta_desc;
 				$tmpl_content['content'] = $this->load->view("jurisdictions/index", $view_data, TRUE);

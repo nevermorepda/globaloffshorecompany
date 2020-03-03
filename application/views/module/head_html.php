@@ -7,10 +7,10 @@ if (empty($meta['title'])) {
 	$meta['title'] = "Global Offshore";
 }
 if (empty($meta['keywords'])) {
-	$meta['keywords'] = "Vietnam visa, Vietnam visa on arrival, Vietnam visa online, Vietnam visa application, Vietnam immigration";
+	$meta['keywords'] = "Global Offshore, Global Offshore company";
 }
 if (empty($meta['description'])) {
-	$meta['description'] = "We recommend that you choose Vietnam visa on arrival, as picking up Vietnam visa at the airport is quite simple, easy, no additional charges and no fail.";
+	$meta['description'] = "";
 	$meta['description'] = "";
 }
 if (empty($meta['canonical'])) {

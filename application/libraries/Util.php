@@ -258,7 +258,7 @@ class Util {
 				return $item->title;
 			}
 		}
-		return "Vietnam Visa On Arrival";
+		return "Global Offshore Company";
 	}
 
 	function vip($level)

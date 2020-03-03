@@ -4,13 +4,13 @@ $meta_info->url = $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];
 $configured_metas = $this->m_meta->items($meta_info, 1);
 
 if (empty($meta['title'])) {
-	$meta['title'] = "Vietnam Visa: Vietnam Visa on Arrival - Vietnam Visa Online";
+	$meta['title'] = "Global Offshore";
 }
 if (empty($meta['keywords'])) {
-	$meta['keywords'] = "Vietnam visa, Vietnam visa on arrival, Vietnam visa online, Vietnam visa application, Vietnam immigration";
+	$meta['keywords'] = "Global Offshore, Global Offshore company";
 }
 if (empty($meta['description'])) {
-	$meta['description'] = "We recommend that you choose Vietnam visa on arrival, as picking up Vietnam visa at the airport is quite simple, easy, no additional charges and no fail.";
+	$meta['description'] = "";
 	$meta['description'] = "";
 }
 if (empty($meta['canonical'])) {

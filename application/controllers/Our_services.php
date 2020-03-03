@@ -22,7 +22,7 @@ class Our_services extends CI_Controller {
 		$view_data['tab'] 			= $tab;
 		
 		$tmpl_content = array();
-		$tmpl_content['meta']['title'] = $this->util->getMetaTitle($service);
+		$tmpl_content['meta']['title'] = $service->meta_title;
 		$tmpl_content['meta']['keywords'] = $service->meta_key;
 		$tmpl_content['meta']['description'] = $service->meta_desc;
 		$tmpl_content['content'] = $this->load->view("service/index", $view_data, TRUE);
