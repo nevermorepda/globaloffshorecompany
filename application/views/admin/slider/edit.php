@@ -8,8 +8,12 @@
 			<input type="hidden" id="task" name="task" value="">
 			<table class="table table-bordered">
 				<tr>
-					<td class="table-head text-right" width="10%">Name</td>
+					<td class="table-head text-right" width="10%">Title</td>
 					<td><input type="text" id="name" name="name" class="form-control" value="<?=$item->name?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Url</td>
+					<td><input type="text" id="link" name="link" class="form-control" value="<?=$item->link?>"></td>
 				</tr>
 				<tr>
 					<td class="table-head text-right" width="10%">Thumbnail</td>
@@ -19,6 +23,10 @@
 							<i class="fa fa-cloud-upload" aria-hidden="true"></i>
 						</label>
 					</td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Description</td>
+					<td><textarea name="content" id="content" class="form-control" rows="10" required="required"><?=$item->content?></textarea></td>
 				</tr>
 				<tr>
 					<td class="table-head text-right"></td>

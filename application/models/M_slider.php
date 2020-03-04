@@ -14,7 +14,7 @@ class M_slider extends M_db
 		if (!is_null($active)) {
 			$sql .= " AND active = '{$active}'";
 		}
-		$sql .= " ORDER BY created_date DESC";
+		$sql .= " ORDER BY order_num ASC, created_date DESC";
 		if (!is_null($limit)) {
 			$sql .= " LIMIT {$limit}";
 		}

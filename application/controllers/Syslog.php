@@ -1840,6 +1840,8 @@ class Syslog extends CI_Controller {
 		if (!empty($task)) {
 			if ($task == "save") {
 				$name			= $this->util->value($this->input->post("name"), "");
+				$link			= $this->util->value($this->input->post("link"), "");
+				$content		= $this->util->value($this->input->post("content"), "");
 				$url_img 		= !empty($_FILES['url_img']['name']) ? explode('.',$_FILES['url_img']['name']) : $this->m_slider->load($id)->url_img;
 				$active			= $this->util->value($this->input->post("active"), 1);
 				
@@ -1849,6 +1851,8 @@ class Syslog extends CI_Controller {
 
 				$data = array (
 					"name"		=> $name,
+					"link"		=> $link,
+					"content"	=> $content,
 					"active"	=> $active
 				);
 				if (!empty($_FILES['url_img']['name'])){

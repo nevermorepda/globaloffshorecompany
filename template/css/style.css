@@ -2096,6 +2096,8 @@ section .owl-slider .bg-slider-mobile .slider-text {
 section .owl-slider .bg-slider-mobile .slider-text .slide-title {
 	border-bottom: 2px solid #fff;
 	padding-bottom: 15px;
+	width: 200px;
+	font-size: 22px;
 }
 section .owl-slider .bg-slider-mobile .slider-text:before {
 	position: absolute;

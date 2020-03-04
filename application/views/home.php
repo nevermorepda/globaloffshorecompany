@@ -37,10 +37,12 @@
 					<div class="row">
 						<div class="col-md-7"></div>
 						<div class="col-md-5">
-							<div class="slider-text">
-								<h2 class="slide-title">The standard Lorem Ipsum <br> passage, used since the 1500s</h2>
-								<p class="slide-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-								<a class="btn-getstarted">View more</a>
+							<div class="slider-text slider-info">
+								<? if (!empty($sliders)) { ?>
+								<h2 class="slide-title"><?=$sliders[0]->name?></h2>
+								<p class="slide-text"><?=$sliders[0]->content?></p>
+								<a class="btn-getstarted" href="<?=$sliders[0]->link?>" target="_blank" >View more</a>
+								<? } ?>
 							</div>
 						</div>
 					</div>
@@ -72,7 +74,7 @@
 					<div class="row">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-							<div class="slider-text" style="width: 256px;padding: 250px 0;"></div>
+							<div class="slider-text" style="width: 245px;padding: 250px 0;"></div>
 						</div>
 					</div>
 				</div>
@@ -85,12 +87,20 @@
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
 							<div class="slider-text">
-								<h2 class="slide-title">The standard Lorem <br>Ipsum passage used <br>since the 1500s</h2>
+								<h2 class="slide-title slide-name-mobile"><?=$sliders[0]->name?></h2>
 							</div>
 						</div>
 					</div>
 					<ul class="control-owl-slider">
 						<? for ($i=0; $i < $c_sliders; $i++) { ?>
+						<div style="display: none;">
+							<div class="slider-text-<?=$i?>">
+								<h2 class="slide-title"><?=$sliders[$i]->name?></h2>
+								<p class="slide-text"><?=$sliders[$i]->content?></p>
+								<a class="btn-getstarted" href="<?=$sliders[$i]->link?>" target="_blank" >View more</a>
+							</div>
+							<div class="slide-name-<?=$i?>"><?=$sliders[$i]->name?></div>
+						</div>
 						<li class="control-icon control-icon-<?=$i?> <?=($i==0) ? 'active' : ''?>" pos="<?=$i?>"></li>
 						<? } ?>
 					</ul>
@@ -108,11 +118,13 @@
 		$('.control-owl-slider .control-icon').click(function() {
 			var pos = parseInt($(this).attr('pos'));
 			owl.trigger('to.owl.carousel',pos,1000);
+			$('.slider-info').html($('.slider-text-'+pos).html());
 		});
 		owl.on('changed.owl.carousel', function(event) {
 			var pos = event.item.index;
 			$('.control-owl-slider > .control-icon').removeClass('active');
 			$('.control-owl-slider > .control-icon-'+pos).addClass('active');
+			$('.slide-name-mobile').html($('.slide-name-'+pos).html());
 		});
 	</script>
 </div>
@@ -613,7 +625,7 @@
 						</div>
 						<?
 							$info = new stdClass();
-							$info->region = 'america-carribean';
+							$info->region = 'america-caribbean';
 							$items = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
