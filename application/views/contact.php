@@ -82,7 +82,7 @@
 	var infowindow = [];
 	geocoder = new google.maps.Geocoder();
 
-	var vietnam = {lat: 30.905722, lng: 3.929537};
+	var vietnam = {lat: 25.836905, lng: 179.984401};
 	
 	$(document).ready(function () {
 		setTimeout(function() { initialize(); }, 400);

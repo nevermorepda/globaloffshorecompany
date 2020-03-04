@@ -105,9 +105,9 @@
 									<div class="sub-menu-title"><h5>EUROPE</h5></div>
 								</div>
 							</a></li>
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/america-carribean")?>">
+							<li class="sub-item"><a href="<?=site_url("jurisdictions/america-caribbean")?>">
 								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xamerica-carribean.jpg');">
-									<div class="sub-menu-title"><h5>AMERICA - CARRIBEAN</h5></div>
+									<div class="sub-menu-title"><h5>AMERICA - CARIBBEAN</h5></div>
 								</div>
 							</a></li>
 							<li class="sub-item"><a href="<?=site_url("jurisdictions/middle-east")?>">
@@ -174,7 +174,7 @@
 				<ul class="sub-menu">
 					<li class="sub-item"><a href="<?=site_url("jurisdictions/asia-pacific")?>">ASIA PACIFIC</a></li>
 					<li class="sub-item"><a href="<?=site_url("jurisdictions/europe")?>">EUROPE</a></li>
-					<li class="sub-item "><a href="<?=site_url("jurisdictions/americas")?>">AMERICAS</a></li>
+					<li class="sub-item "><a href="<?=site_url("jurisdictions/america-caribbean")?>">AMERICA - CARIBBEAN</a></li>
 					<li class="sub-item "><a href="<?=site_url("jurisdictions/middle-east")?>">MIDDLE EAST</a></li>
 					<li class="sub-item "><a href="<?=site_url("jurisdictions/africa")?>">AFRICA</a></li>
 				</ul>

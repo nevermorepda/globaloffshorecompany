@@ -525,7 +525,7 @@
 					</div>
 					<div class="col-md">
 						<div class="item" st="0" item="2" style="background-image: url(<?=IMG_URL?>region/300xamerica-carribean.jpg);">
-							<div class="item-title">AMERICA - CARRIBEAN<hr></div>
+							<div class="item-title">AMERICA - CARIBBEAN<hr></div>
 							<div class="view-more">
 								<a class="btn btn-viewmore">view more</a>
 							</div>
@@ -608,7 +608,7 @@
 				<div class="info-jurisdictions info-jurisdictions-2" style="background-image: url(<?=IMG_URL?>region/america-carribean.jpg);">
 					<div class="bg-info-jurisdictions">
 						<div class="info-jurisdictions-title">
-							<h5>AMERICAS</h5>
+							<h5>AMERICA - CARIBBEAN</h5>
 							<p>Global Offshore</p>
 						</div>
 						<?
