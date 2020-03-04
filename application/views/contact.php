@@ -39,6 +39,7 @@
 								<option value="Company Directorship / Secretary / Nominee">Company Directorship / Secretary / Nominee</option>
 								<option value="Company Maintenance / Administration">Company Maintenance / Administration</option>
 								<option value="Company Dissolution / Restoration">Company Dissolution / Restoration</option>
+								<option value="Shelf Companies">Shelf Companies</option>
 								<option value="Serviced Office / Virtual Office">Serviced Office / Virtual Office</option>
 								<option value="Accounting & Tax">Accounting & Tax</option>
 								<option value="Foundation & Trust">Foundation & Trust</option>
@@ -93,7 +94,7 @@
 		areaiterator = 0;
 		region = new google.maps.LatLng(regionlocation[areaiterator].split(',')[0], regionlocation[areaiterator].split(',')[1]);
 		map = new google.maps.Map(document.getElementById("Map"), { 
-			zoom: 4,
+			zoom: 3,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			center: region,
 		});
@@ -102,24 +103,14 @@
 	
 	function GetValues() {
 		//Get the Latitude and Longitude of a Point site : http://itouchmap.com/latlong.html
-		contentstring[0] = "S4 Ba Vi, District 10, Ho Chi Minh City";
-		regionlocation[0] = '10.7801413,106.6604573';
+		contentstring[0] = "187 E. Warm Springs Rd, Suite B324, Las Vegas, Nevada 89119";
+		regionlocation[0] = '36.0571651,-115.1633232';
 					
-		contentstring[1] = "21, 3 Trần Hưng Đạo, Thành phố Long Xuyên, An Giang Province";
-		regionlocation[1] = "10.3299182,105.4818821";
+		contentstring[1] = "23 New Industrial Road #04-08 Solstice Business Center Singapore 536209";
+		regionlocation[1] = "1.3433314,103.8830069";
 		
-		contentstring[2] = "11, 33 Nguyễn Hữu Tiến, Tân Phú, Ho Chi Minh City";
-		regionlocation[2] = "10.809922,106.6230835";
-		
-		// contentstring[3] = "Pune, india";
-		// regionlocation[3] = "18.520430, 73.856744";
-		
-		// contentstring[4] = "Chennai, india";
-		// regionlocation[4] = "13.082680, 80.270718";
-		
-		// contentstring[5] = "Visakhapatnam, Andhra Pradesh, india";
-		// regionlocation[5] = "17.686816, 83.218482";
-		
+		contentstring[2] = "The EverRich Infinity, 290 An Duong Vuong, District 5, Ho Chi Minh City, Vietnam";
+		regionlocation[2] = "10.7604927,106.6784627";
 	}
 	function drop() {
 		for (var i = 0; i < contentstring.length; i++) {
@@ -140,7 +131,7 @@
 			position: temp_latLng,
 			map: map,
 			icon: icons,
-			draggable: false
+			draggable: true
 		}));            
 		iterator++;
 		info(iterator);
