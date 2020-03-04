@@ -22,7 +22,7 @@ define("ADMIN_CSS_URL",			ADMIN_TPL_URL."css/");
 define("ADMIN_JS_URL",			ADMIN_TPL_URL."js/");
 define("ADMIN_AGENT_ID",		"M_GLOBAL_OFFSHORE");
 define("ADMIN_ROW_PER_PAGE",	10);
-define("SUPER_ADMIN_FULL_ROLE",	'8061|8060|5|1');
+define("SUPER_ADMIN_FULL_ROLE",	'8061|8060|5|2');
 
 define("BOOKING_PREFIX",		"VISA");
 define("CODE_COMPANY_SERVICE",	"COMS");

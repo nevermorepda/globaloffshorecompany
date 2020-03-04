@@ -12,7 +12,9 @@
 				<ul class="contact-list">
 					<li class="phone"><a href=""><?=$setting->company_hotline_us?></a></li>
 					<li class="mail"><a href=""><?=$setting->company_email?></a></li>
-					<li class="address"><a href=""><?=$setting->company_address?></a></li>
+					<li class="address"><a href="">187 E. Warm Springs Rd, Suite B324, Las Vegas, Nevada 89119</a></li>
+					<li class="address"><a href="">23 New Industrial Road #04-08 Solstice Business Center Singapore 536209</a></li>
+					<li class="address"><a href="">The EverRich Infinity, 290 An Duong Vuong, District 5, Ho Chi Minh City, Vietnam</a></li>
 				</ul>
 				<h4 class="contact-title">SOCIAL MEDIA</h4>
 				<ul class="contact-social">

@@ -108,9 +108,9 @@
 <div class="footer-content">
 	<div class="container">
 		<div class="row">
-			<div class="col-md">
+			<div class="col-md-2">
 				<div class="footer-logo">
-					<img src="<?=IMG_URL?>logo-mobile.png" alt="">
+					<img src="<?=IMG_URL?>logo-mobile.png" alt="global offshore company" style="margin-top: 9px;">
 					<ul class="socical">
 						<li><a href="<?=$setting->googleplus_url?>" target="_blank"><i class="transition fab fa-instagram"></i></a></li>
 						<li><a href="<?=$setting->facebook_url?>" target="_blank"><i class="transition fab fa-facebook-f"></i></a></li>
@@ -119,41 +119,35 @@
 					</ul>
 				</div>
 			</div>
-			<div class="col-md">
-				<ul class="support">
-					<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">SUPPORT PHONE</li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-				</ul>
-			</div>
-			<div class="col-md">
-				<ul class="support">
-					<li style="font-size: 18px;font-weight: bold;color:#707070;padding-bottom: 10px;" class="d-none d-lg-block">SUPPORT PHONE</li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-				</ul>
-			</div>
-			<div class="col-md">
-				<ul class="support">
-					<li style="font-size: 18px;font-weight: bold;color:#707070;padding-bottom: 10px;" class="d-none d-lg-block">SUPPORT PHONE</li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-					<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-				</ul>
-			</div>
-			<div class="col-md">
-				<ul class="support">
-					<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">FIND US</li>
-					<li> <i class="fas fa-phone"></i> <a href=""> <?=$setting->company_hotline_vn?></a></li>
-					<li> <i class="fas fa-envelope"></i> <a href=""> <?=$setting->company_email?></a></li>
-					<li> <i class="far fa-clock"></i> Mon - Fri: 8:00 - 18:00</li>
-					<li> <i class="fas fa-map-marker-alt"></i> <?=$setting->company_address?></li>
-				</ul>
+			<div class="col-md-10">
+				<div class="row">
+					<div class="col-md-3">
+						<ul class="support">
+							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">SUPPORT PHONE</li>
+							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
+							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
+							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
+							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
+						</ul>
+					</div>
+					<div class="col-md-3">
+						<ul class="support">
+							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">FIND US</li>
+							<li> <i class="fas fa-phone"></i> <a href=""> <?=$setting->company_hotline_vn?></a></li>
+							<li> <i class="fas fa-envelope"></i> <a href=""> <?=$setting->company_email?></a></li>
+							<li> <i class="far fa-clock"></i> Mon - Fri: 8:00 - 18:00</li>
+							
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<ul class="support">
+							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;" class="d-none d-lg-block">ADDRESS</li>
+							<li> <i class="fas fa-map-marker-alt"></i> 187 E. Warm Springs Rd, Suite B324, Las Vegas, Nevada 89119</li>
+							<li> <i class="fas fa-map-marker-alt"></i> 23 New Industrial Road #04-08 Solstice Business Center Singapore 536209</li>
+							<li> <i class="fas fa-map-marker-alt"></i> The EverRich Infinity, 290 An Duong Vuong, District 5, Ho Chi Minh City, Vietnam</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
