@@ -81,6 +81,8 @@
 	var map;
 	var infowindow = [];
 	geocoder = new google.maps.Geocoder();
+
+	var vietnam = {lat: 30.905722, lng: 3.929537};
 	
 	$(document).ready(function () {
 		setTimeout(function() { initialize(); }, 400);
@@ -96,7 +98,7 @@
 		map = new google.maps.Map(document.getElementById("Map"), { 
 			zoom: 3,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
-			center: region,
+			center: vietnam,
 		});
 		drop();
 	}
