@@ -119,11 +119,13 @@
 			var pos = parseInt($(this).attr('pos'));
 			owl.trigger('to.owl.carousel',pos,1000);
 			$('.slider-info').html($('.slider-text-'+pos).html());
+			$('.slide-name-mobile').html($('.slide-name-'+pos).html());
 		});
 		owl.on('changed.owl.carousel', function(event) {
 			var pos = event.item.index;
 			$('.control-owl-slider > .control-icon').removeClass('active');
 			$('.control-owl-slider > .control-icon-'+pos).addClass('active');
+			$('.slider-info').html($('.slider-text-'+pos).html());
 			$('.slide-name-mobile').html($('.slide-name-'+pos).html());
 		});
 	</script>
