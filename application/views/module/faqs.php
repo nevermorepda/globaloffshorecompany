@@ -43,7 +43,7 @@
 							$(this).attr('st',0);
 							$(this).removeClass('active');
 						}
-						$(this).parent().children(".answer").toggle('slow');
+						$(this).parent().children(".answer").toggle('fast');
 					});
 				});
 			</script>

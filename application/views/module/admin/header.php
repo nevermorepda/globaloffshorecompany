@@ -57,6 +57,7 @@
 								<li role="separator" class="divider"></li>
 								<? gen_category_menu($content_categories, $this); ?>
 								<li role="separator" class="divider"></li>
+								<li><a href="<?=site_url("syslog/faq")?>">Faqs</a></li>
 								<li><a href="<?=site_url("syslog/nations")?>">Nations</a></li>
 							</ul>
 						</li>

@@ -130,14 +130,14 @@
 						<ul class="sub-resources">
 							<li >
 								<a href="<?=site_url("news")?>" class="transition">
-									News
+									NEWS
 								</a>
 							</li>
-							<!-- <li>
-								<a href="<?=site_url("blogs")?>" class="transition">
-									Blog
+							<li>
+								<a href="<?=site_url("faqs")?>" class="transition">
+									FAQS
 								</a>
-							</li> -->
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -185,7 +185,7 @@
 				<a>RESOURCES</a>
 				<ul class="sub-menu">
 					<li class="sub-item"><a href="<?=site_url("news")?>">NEWS</a></li>
-					<!-- <li class="sub-item"><a href="<?=site_url("blogs")?>">BLOG</a></li> -->
+					<li class="sub-item"><a href="<?=site_url("faqs")?>">FAQS</a></li>
 				</ul>
 				<i class="fas fa-angle-down"></i>
 			</li>

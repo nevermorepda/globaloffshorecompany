@@ -492,6 +492,7 @@ section .owl-slider .bg-slider .slider-text {
 	padding: 70px 0 115px 0;
 	color: #fff;
 	min-height: 400px;
+	min-width: 460px;
 }
 section .owl-slider .bg-slider .slider-text:before {
 	position: absolute;
