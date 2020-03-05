@@ -529,7 +529,8 @@ section .owl-slider .bg-slider .slider-text .btn-getstarted {
 	cursor: pointer;
 }
 section .owl-slider .bg-slider .slider-text .btn-getstarted:hover {
-	background: #ececec;
+	background: #b21f1f;
+	color: #fff;
 }
 section .apply {
 	padding: 15px 0;
@@ -1123,7 +1124,18 @@ section .item .view-more .btn-viewmore {
 	padding: 3px 12px;
 }
 section .item .view-more .btn-viewmore:hover {
-	background: #e8e8e8;
+	background: #b21f1f;
+	color: #fff;
+}
+section .btn-viewmore {
+	background: #fff;
+	color: #333;
+	box-shadow: 0 0 10px #999;
+	padding: 5px 12px;
+}
+section .btn-viewmore:hover {
+	background: #b21f1f;
+	color: #fff;
 }
 section .offshore-company {
 	position: relative;

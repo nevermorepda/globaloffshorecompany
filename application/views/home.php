@@ -41,8 +41,9 @@
 								<? if (!empty($sliders)) { ?>
 								<h2 class="slide-title"><?=$sliders[0]->name?></h2>
 								<p class="slide-text"><?=$sliders[0]->content?></p>
+								<? if (!empty($sliders[0]->link)) { ?>
 								<a class="btn-getstarted" href="<?=$sliders[0]->link?>" target="_blank" >View more</a>
-								<? } ?>
+								<? } } ?>
 							</div>
 						</div>
 					</div>
@@ -97,7 +98,9 @@
 							<div class="slider-text-<?=$i?>">
 								<h2 class="slide-title"><?=$sliders[$i]->name?></h2>
 								<p class="slide-text"><?=$sliders[$i]->content?></p>
+								<? if (!empty($sliders[$i]->link)) { ?>
 								<a class="btn-getstarted" href="<?=$sliders[$i]->link?>" target="_blank" >View more</a>
+								<? } ?>
 							</div>
 							<div class="slide-name-<?=$i?>"><?=$sliders[$i]->name?></div>
 						</div>
