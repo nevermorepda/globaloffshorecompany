@@ -1,5 +1,5 @@
 <? if (!in_array($this->router->fetch_class(), array('member','apply_company_services'))) { ?>
-<div class="">
+<div class="cluster">
 	<div class="container">
 		<div class="home-bottom">
 			<div style="position: absolute;width: 100%;height: 342px;top: 0;left: 0;background-image: linear-gradient(to right, transparent 10%, #00000091 100%);"></div>

@@ -575,10 +575,10 @@
 						<?
 							$info = new stdClass();
 							$info->region = 'asia-pacific';
-							$items = $this->m_jurisdictions->items($info);
+							$items1 = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
-							<? foreach ($items as $item) { ?>
+							<? foreach ($items1 as $item) { ?>
 							<div class="col-md-6">
 								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
 									<div class="child-item">
@@ -603,10 +603,10 @@
 						<?
 							$info = new stdClass();
 							$info->region = 'europe';
-							$items = $this->m_jurisdictions->items($info);
+							$items2 = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
-							<? foreach ($items as $item) { ?>
+							<? foreach ($items2 as $item) { ?>
 							<div class="col-md-6">
 								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
 									<div class="child-item">
@@ -631,10 +631,10 @@
 						<?
 							$info = new stdClass();
 							$info->region = 'america-caribbean';
-							$items = $this->m_jurisdictions->items($info);
+							$items3 = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
-							<? foreach ($items as $item) { ?>
+							<? foreach ($items3 as $item) { ?>
 							<div class="col-md-6">
 								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
 									<div class="child-item">
@@ -659,10 +659,10 @@
 						<?
 							$info = new stdClass();
 							$info->region = 'middle-east';
-							$items = $this->m_jurisdictions->items($info);
+							$items4 = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
-							<? foreach ($items as $item) { ?>
+							<? foreach ($items4 as $item) { ?>
 							<div class="col-md-6">
 								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
 									<div class="child-item">
@@ -687,10 +687,10 @@
 						<?
 							$info = new stdClass();
 							$info->region = 'africa';
-							$items = $this->m_jurisdictions->items($info);
+							$items5 = $this->m_jurisdictions->items($info);
 						?>
 						<div class="row">
-							<? foreach ($items as $item) { ?>
+							<? foreach ($items5 as $item) { ?>
 							<div class="col-md-6">
 								<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
 									<div class="child-item">
@@ -723,183 +723,123 @@
 				});
 			</script>
 			<div class="d-block d-lg-none">
-				<div class="wrap-item-mobile">
+				<div class="wrap-item-mobile" style="background-image: url(<?=IMG_URL?>region/300xasia-pacific.jpg);">
 					<div class="item" st="0" item="0">
 						<div class="bg-icon">
-							<div class="item-title">COMPANY SERVICES</div>
+							<div class="item-title">ASIA PACIFIC</div>
 						</div>
 						<i class="fas fa-angle-down"></i>
 					</div>
-					<div class="info-item info-item-0">
+					<div class="info-item info-item-0" style="background-image: url(<?=IMG_URL?>region/asia-pacific.jpg);">
 						<div class="info-item-bg">
 							<div class="info-service-title">
-								<h5>COMPANY SERVICES</h5>
+								<h5>ASIA PACIFIC</h5>
 								<p>Global Offshore</p>
 							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Hong Kong</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Singapore</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Japan</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Thailand</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Korea</h6>
-							</div>
+							<? foreach ($items1 as $item) { ?>
+							<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+								<div class="detail-item">
+									<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+									<h6><?=$item->name?></h6>
+								</div>
+							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="wrap-item-mobile">
+				<div class="wrap-item-mobile" style="background-image: url(<?=IMG_URL?>region/300xeurope.jpg);">
 					<div class="item" st="0" item="1">
 						<div class="bg-icon">
-							<div class="item-title">COMPANY SERVICES</div>
+							<div class="item-title">EUROPE</div>
 						</div>
 						<i class="fas fa-angle-down"></i>
 					</div>
-					<div class="info-item info-item-1">
+					<div class="info-item info-item-1" style="background-image: url(<?=IMG_URL?>region/europe.jpg);">
 						<div class="info-item-bg">
 							<div class="info-service-title">
-								<h5>COMPANY SERVICES</h5>
+								<h5>EUROPE</h5>
 								<p>Global Offshore</p>
 							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Hong Kong</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Singapore</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Japan</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Thailand</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Korea</h6>
-							</div>
+							<? foreach ($items2 as $item) { ?>
+							<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+								<div class="detail-item">
+									<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+									<h6><?=$item->name?></h6>
+								</div>
+							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="wrap-item-mobile">
+				<div class="wrap-item-mobile" style="background-image: url(<?=IMG_URL?>region/300xamerica-carribean.jpg);">
 					<div class="item" st="0" item="2">
 						<div class="bg-icon">
-							<div class="item-title">COMPANY SERVICES</div>
+							<div class="item-title">AMERICA - CARIBBEAN</div>
 						</div>
 						<i class="fas fa-angle-down"></i>
 					</div>
-					<div class="info-item info-item-2">
+					<div class="info-item info-item-2" style="background-image: url(<?=IMG_URL?>region/america-carribean.jpg);">
 						<div class="info-item-bg">
 							<div class="info-service-title">
-								<h5>COMPANY SERVICES</h5>
+								<h5>AMERICA - CARIBBEAN</h5>
 								<p>Global Offshore</p>
 							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Hong Kong</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Singapore</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Japan</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Thailand</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Korea</h6>
-							</div>
+							<? foreach ($items3 as $item) { ?>
+							<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+								<div class="detail-item">
+									<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+									<h6><?=$item->name?></h6>
+								</div>
+							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="wrap-item-mobile">
+				<div class="wrap-item-mobile" style="background-image: url(<?=IMG_URL?>region/300xmiddle-east.jpg);">
 					<div class="item" st="0" item="3">
 						<div class="bg-icon">
-							<div class="item-title">COMPANY SERVICES</div>
+							<div class="item-title">MIDDLE EAST</div>
 						</div>
 						<i class="fas fa-angle-down"></i>
 					</div>
-					<div class="info-item info-item-3">
+					<div class="info-item info-item-3" style="background-image: url(<?=IMG_URL?>region/middle-east.jpg);">
 						<div class="info-item-bg">
 							<div class="info-service-title">
-								<h5>COMPANY SERVICES</h5>
+								<h5>MIDDLE EAST</h5>
 								<p>Global Offshore</p>
 							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Hong Kong</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Singapore</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Japan</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Thailand</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Korea</h6>
-							</div>
+							<? foreach ($items4 as $item) { ?>
+							<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+								<div class="detail-item">
+									<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+									<h6><?=$item->name?></h6>
+								</div>
+							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>
-				<div class="wrap-item-mobile">
+				<div class="wrap-item-mobile" style="background-image: url(<?=IMG_URL?>region/300xafrica.jpg);">
 					<div class="item" st="0" item="4">
 						<div class="bg-icon">
-							<div class="item-title">COMPANY SERVICES</div>
+							<div class="item-title">AFRICA</div>
 						</div>
 						<i class="fas fa-angle-down"></i>
 					</div>
-					<div class="info-item info-item-4">
+					<div class="info-item info-item-4" style="background-image: url(<?=IMG_URL?>region/africa.jpg);">
 						<div class="info-item-bg">
 							<div class="info-service-title">
-								<h5>COMPANY SERVICES</h5>
+								<h5>AFRICA</h5>
 								<p>Global Offshore</p>
 							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Hong Kong</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Singapore</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Japan</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Thailand</h6>
-							</div>
-							<div class="detail-item">
-								<img src="<?=IMG_URL?>glas.png" alt="">
-								<h6>Korea</h6>
-							</div>
+							<? foreach ($items5 as $item) { ?>
+							<a href="<?=site_url("jurisdictions/{$item->region}/{$item->alias}")?>">
+								<div class="detail-item">
+									<img src="<?=IMG_URL?>flag/<?=$item->alias?>.svg" alt="<?=$item->name?>">
+									<h6><?=$item->name?></h6>
+								</div>
+							</a>
+							<? } ?>
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,7 @@ class Home extends CI_Controller {
 	public function index()
 	{
 		// $this->util->block_ip();
-		$this->output->cache(CACHE_TIME);
+		// $this->output->cache(CACHE_TIME);
 		$sliders = $this->m_slider->items(1);
 
 		$services = $this->m_services->items(null,1,5);

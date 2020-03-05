@@ -4,7 +4,7 @@
 	$resources = $this->m_content->items($info,1,8);
 	$c = count($resources);
 ?>
-<div class=" d-none d-lg-block" id="<?=!empty($tab_detail->module) ? $tab_detail->module : ''?>">
+<div class="cluster d-none d-lg-block" id="<?=!empty($tab_detail->module) ? $tab_detail->module : ''?>">
 	<div class="resources wrap-owl">
 		<div class="container">
 			<div style="position: relative;">

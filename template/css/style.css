@@ -206,7 +206,6 @@ a:hover {
 }
 .cluster {
 	padding-top: 40px;
-	padding-bottom: 40px;
 }
 .breadcrumb {
 	background: #fff;
@@ -492,6 +491,7 @@ section .owl-slider .bg-slider .slider-text {
 	background: #b21f1f38;
 	padding: 70px 0 115px 0;
 	color: #fff;
+	min-height: 400px;
 }
 section .owl-slider .bg-slider .slider-text:before {
 	position: absolute;
@@ -2306,7 +2306,7 @@ section .services .wrap-item-mobile .info-item .info-item-bg .detail-item h6 {
 }
 section .jurisdictions .wrap-item-mobile {
 	margin-bottom: 3px;
-	background-image: url('../images/re-item.jpg');
+	/* background-image: url('../images/re-item.jpg'); */
 	background-size: cover;
 	background-repeat: no-repeat;
 	border-radius: 6px;
@@ -2366,6 +2366,9 @@ section .jurisdictions .wrap-item-mobile .item .item-title {
 section .jurisdictions .wrap-item-mobile .info-item {
 	border-top: 5px solid #8f1a1a;
 	display: none;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
 }
 section .jurisdictions .wrap-item-mobile .info-item .info-item-bg {
 	position: relative;
@@ -2416,17 +2419,21 @@ section .jurisdictions .wrap-item-mobile .info-item .info-item-bg .detail-item {
 	display: table;
 }
 section .jurisdictions .wrap-item-mobile .info-item .info-item-bg .detail-item img {
-	width: 30px;
+	width: 40px;
 	display: table-cell;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
 }
 section .jurisdictions .wrap-item-mobile .info-item .info-item-bg .detail-item h6 {
 	display: table-cell;
 	padding-left: 8px;
 	vertical-align: middle;
 	font-size: 13px;
+	color: #4d4d4d;
 }
 section .tabs-bar {
-	margin-top: 30px;
+	margin-top: 15px;
 }
 section .tabs-bar .nav-tabs {
 	border: none;
@@ -2437,6 +2444,7 @@ section .tabs-bar .nav-link {
 	font-weight: bold;
 	border: none;
 	margin-right: 1px;
+	padding: 8px 13px;
 }
 section .tabs-bar .nav-link:hover{
 	background: #e15a5a;
