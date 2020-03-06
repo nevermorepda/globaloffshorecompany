@@ -320,19 +320,24 @@ header .menu .nav .nav-item > a:hover {
 header .menu .nav .nav-item:hover .sub-menu {
 	display: block;
 }
+header .menu .nav .wrap-menu .wrap-menu-sub {
+	display: none;
+}
+header .menu .nav .wrap-menu:hover .wrap-menu-sub {
+	display: block;
+}
 header .menu .menu-services {
 	position: absolute;
 	left: -180%;
 	background: #fff;
-	display: none;
-	width: 500%;
+	display: table;
 	box-shadow: 0px 8px 10px #999;
 	padding: 20px;
 }
 header .menu .menu-services > .sub-item {
 	list-style: none;
-	display: inline-block;
-	margin: 0 5px;
+	display: table-cell;
+	padding: 0 5px;
 }
 header .menu .menu-services > .sub-item > a {
 	width: 125px;
@@ -366,15 +371,14 @@ header .menu .menu-jurisdictions {
 	position: absolute;
 	left: -180%;
 	background: #fff;
-	display: none;
-	width: 455%;
+	display: table;
 	box-shadow: 0px 10px 10px #999;
 	padding: 20px;
 }
 header .menu .menu-jurisdictions > .sub-item {
 	list-style: none;
-	display: inline-block;
-	margin: 0 5px;
+	display: table-cell;
+	padding: 0 5px;
 }
 header .menu .menu-jurisdictions > .sub-item .bg-menu-sub {
 	width: 115px;
@@ -410,7 +414,7 @@ header .menu .nav-resources .sub-resources {
 	position: absolute;
 	width: 100%;
 	top: 100%;
-	left: 0;
+	left: 15px;
 	background: #fff;
 	box-shadow: 0 3px 4px #353535;
 	display: none;

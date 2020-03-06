@@ -8,7 +8,7 @@
 						<li><a href="#" class="btn-unpublish"><i class="fa fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
 						<li><a href="#" class="btn-publish"><i class="fa fa-eye" aria-hidden="true"></i> Show</a></li>
 						<li><a href="#" class="btn-delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
-						<li><a href="<?=site_url("syslog/faq/add")?>"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
+						<li><a href="<?=site_url("syslog/faq/{$category->id}/add")?>"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
 					</ul>
 				</div>
 			</h1>

@@ -81,46 +81,50 @@
 					<li class="nav-item">
 						<a class="nav-link transition active" href="<?=site_url("about-us")?>">ABOUT US</a>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item wrap-menu">
 						<a class="nav-link transition">OUR SERVICES <i class="fas fa-caret-down"></i></a>
-						<ul class="menu-services sub-menu">
-							<? $i=0; foreach ($services as $service) { ?>
-							<li class="sub-item"><a href="<?=site_url("our-services/{$service->alias}")?>">
-								<div class="sub-menu-icon"><i class="fas <?=$arr_icon[$i]?>"></i></div>
-								<div class="sub-menu-title"><?=$service->name?></div>
-							</a></li>
-							<? $i++;} ?>
-						</ul>
+						<div class="wrap-menu-sub">
+							<ul class="menu-services sub-menu">
+								<? $i=0; foreach ($services as $service) { ?>
+								<li class="sub-item"><a href="<?=site_url("our-services/{$service->alias}")?>">
+									<div class="sub-menu-icon"><i class="fas <?=$arr_icon[$i]?>"></i></div>
+									<div class="sub-menu-title"><?=$service->name?></div>
+								</a></li>
+								<? $i++;} ?>
+							</ul>
+						</div>
 					</li>
-					<li class="nav-item">
+					<li class="nav-item wrap-menu">
 						<a class="nav-link transition">JURISDICTIONS <i class="fas fa-caret-down"></i></a>
-						<ul class="menu-jurisdictions sub-menu">
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/asia-pacific")?>">
-								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xasia-pacific.jpg');">
-									<div class="sub-menu-title"><h5>ASIA PACIFIC</h5></div>
-								</div>
-							</a></li>
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/europe")?>">
-								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xeurope.jpg');">
-									<div class="sub-menu-title"><h5>EUROPE</h5></div>
-								</div>
-							</a></li>
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/america-caribbean")?>">
-								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xamerica-carribean.jpg');">
-									<div class="sub-menu-title"><h5>AMERICA - CARIBBEAN</h5></div>
-								</div>
-							</a></li>
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/middle-east")?>">
-								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xmiddle-east.jpg');">
-									<div class="sub-menu-title"><h5>MIDDLE EAST</h5></div>
-								</div>
-							</a></li>
-							<li class="sub-item"><a href="<?=site_url("jurisdictions/africa")?>">
-								<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xafrica.jpg');">
-									<div class="sub-menu-title"><h5>AFRICA</h5></div>
-								</div>
-							</a></li>
-						</ul>
+						<div class="wrap-menu-sub">
+							<ul class="menu-jurisdictions sub-menu">
+								<li class="sub-item"><a href="<?=site_url("jurisdictions/asia-pacific")?>">
+									<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xasia-pacific.jpg');">
+										<div class="sub-menu-title"><h5>ASIA PACIFIC</h5></div>
+									</div>
+								</a></li>
+								<li class="sub-item"><a href="<?=site_url("jurisdictions/europe")?>">
+									<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xeurope.jpg');">
+										<div class="sub-menu-title"><h5>EUROPE</h5></div>
+									</div>
+								</a></li>
+								<li class="sub-item"><a href="<?=site_url("jurisdictions/america-caribbean")?>">
+									<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xamerica-carribean.jpg');">
+										<div class="sub-menu-title"><h5>AMERICA - CARIBBEAN</h5></div>
+									</div>
+								</a></li>
+								<li class="sub-item"><a href="<?=site_url("jurisdictions/middle-east")?>">
+									<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xmiddle-east.jpg');">
+										<div class="sub-menu-title"><h5>MIDDLE EAST</h5></div>
+									</div>
+								</a></li>
+								<li class="sub-item"><a href="<?=site_url("jurisdictions/africa")?>">
+									<div class="bg-menu-sub" style="background-image: url('<?=IMG_URL?>region/300xafrica.jpg');">
+										<div class="sub-menu-title"><h5>AFRICA</h5></div>
+									</div>
+								</a></li>
+							</ul>
+						</div>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link transition" href="<?=site_url("contact")?>">CONTACT US</a>

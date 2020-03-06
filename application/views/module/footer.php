@@ -135,7 +135,7 @@
 							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">FIND US</li>
 							<li> <i class="fas fa-phone"></i> <a href=""> <?=$setting->company_hotline_vn?></a></li>
 							<li> <i class="fas fa-envelope"></i> <a href=""> <?=$setting->company_email?></a></li>
-							<li> <i class="far fa-clock"></i> Mon - Fri: 8:00 - 18:00</li>
+							<li> <i class="far fa-clock"></i> Mon - Fri: 8:00 - 17:30</li>
 							
 						</ul>
 					</div>
