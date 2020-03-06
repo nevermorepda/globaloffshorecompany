@@ -660,16 +660,143 @@ class Syslog extends CI_Controller {
 			$this->load->view("layout/admin/main", $tmpl_content);
 		}
 	}
-	public function faq($action=null, $id=null)
+
+	public function faq_categories($action=null, $id=null)
 	{
+		$this->_breadcrumb = array_merge($this->_breadcrumb, array("FAQs Categories" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}")));
 		
-		$this->_breadcrumb = array_merge($this->_breadcrumb, array("FAQs" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}")));
+		$task = $this->util->value($this->input->post("task"), "");
+		if (!empty($task)) {
+			if ($task == "save") {
+				$name			= $this->util->value($this->input->post("name"), "");
+				$alias			= $this->util->value($this->input->post("alias"), "");
+				$active			= $this->util->value($this->input->post("active"), 1);
+				
+				if (empty($alias)) {
+					$alias = $this->util->slug($name);
+				}
+				
+				$data = array (
+					"name"		=> $name,
+					"alias"		=> $alias,
+					"active"	=> $active
+				);
+				
+				if ($action == "add") {
+					$this->m_faq_category->add($data);
+				}
+				else if ($action == "edit") {
+					$where = array("id" => $id);
+					$this->m_faq_category->update($data, $where);
+				}
+				$this->create_sitemap();
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "cancel") {
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "orderup") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$this->m_faq_category->order_up($id);
+				}
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "orderdown") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$this->m_faq_category->order_down($id);
+				}
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "saveorder") {
+				$order = $this->util->value($this->input->post("order"), array());
+				$cids  = $this->util->value($this->input->post("cids"), array());
+				for ($i=0; $i<sizeof($cids); $i++) {
+					$data = array("order_num" => $order[$i]);
+					$where = array("id" => $cids[$i]);
+					$this->m_faq_category->update($data, $where);
+				}
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "publish") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$data = array("active" => 1);
+					$where = array("id" => $id);
+					$this->m_faq_category->update($data, $where);
+				}
+				$this->create_sitemap();
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "unpublish") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$data = array("active" => 0);
+					$where = array("id" => $id);
+					$this->m_faq_category->update($data, $where);
+				}
+				$this->create_sitemap();
+				redirect(site_url("syslog/faq-categories"));
+			}
+			else if ($task == "delete") {
+				$ids = $this->util->value($this->input->post("cid"), array());
+				foreach ($ids as $id) {
+					$where = array("id" => $id);
+					$this->m_faq_category->delete($where);
+				}
+				$this->create_sitemap();
+				redirect(site_url("syslog/faq-categories"));
+			}
+		}
+		
+		if ($action == "add") {
+			$item = $this->m_faq_category->instance();
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("Add FAQs Category" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$action}")));
+			
+			$view_data = array();
+			$view_data["breadcrumb"] = $this->_breadcrumb;
+			$view_data["item"] = $item;
+			
+			$tmpl_content = array();
+			$tmpl_content["content"] = $this->load->view("admin/faq/category/edit", $view_data, true);
+			$this->load->view("layout/admin/main", $tmpl_content);
+		}
+		else if ($action == "edit") {
+			$item = $this->m_faq_category->load($id);
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$item->name}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$action}/{$id}")));
+		
+			$view_data = array();
+			$view_data["breadcrumb"] = $this->_breadcrumb;
+			$view_data["item"] = $item;
+			
+			$tmpl_content = array();
+			$tmpl_content["content"] = $this->load->view("admin/faq/category/edit", $view_data, true);
+			$this->load->view("layout/admin/main", $tmpl_content);
+		}
+		else {
+			
+			$view_data = array();
+			$view_data["breadcrumb"] 	= $this->_breadcrumb;
+			$view_data["items"]			= $this->m_faq_category->items();
+			
+			$tmpl_content = array();
+			$tmpl_content["content"] = $this->load->view("admin/faq/category/index", $view_data, true);
+			$this->load->view("layout/admin/main", $tmpl_content);
+		}
+	}
+
+	public function faq($category_id, $action=null, $id=null)
+	{
+		$category = $this->m_faq_category->load($category_id);
+		
+		$this->_breadcrumb = array_merge($this->_breadcrumb, array("FAQ Categories" => site_url("{$this->util->slug($this->router->fetch_class())}/faq-categories")));
+		$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$category->name}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$category_id}")));
 		
 		$task = $this->util->value($this->input->post("task"), "");
 		if (!empty($task)) {
 			if ($task == "save") {
 				$title			= $this->util->value($this->input->post("title"), "");
-				// $alias			= $this->util->value($this->input->post("alias"), "");
 				$meta_title		= $this->util->value($this->input->post("meta_title"), "");
 				$meta_key		= $this->util->value($this->input->post("meta_key"), "");
 				$meta_desc		= $this->util->value($this->input->post("meta_desc"), "");
@@ -683,6 +810,7 @@ class Syslog extends CI_Controller {
 				$data = array (
 					"title"			=> $title,
 					"alias"			=> $alias,
+					"category_id"	=> $category_id,
 					"meta_title"	=> $meta_title,
 					"meta_key"		=> $meta_key,
 					"meta_desc"		=> $meta_desc,
@@ -698,24 +826,24 @@ class Syslog extends CI_Controller {
 					$this->m_faq->update($data, $where);
 				}
 				$this->create_sitemap();
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "cancel") {
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "orderup") {
 				$ids = $this->util->value($this->input->post("cid"), array());
 				foreach ($ids as $id) {
 					$this->m_faq->order_up($id);
 				}
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "orderdown") {
 				$ids = $this->util->value($this->input->post("cid"), array());
 				foreach ($ids as $id) {
 					$this->m_faq->order_down($id);
 				}
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "saveorder") {
 				$order = $this->util->value($this->input->post("order"), array());
@@ -725,7 +853,7 @@ class Syslog extends CI_Controller {
 					$where = array("id" => $cids[$i]);
 					$this->m_faq->update($data, $where);
 				}
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "publish") {
 				$ids = $this->util->value($this->input->post("cid"), array());
@@ -735,7 +863,7 @@ class Syslog extends CI_Controller {
 					$this->m_faq->update($data, $where);
 				}
 				$this->create_sitemap();
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "unpublish") {
 				$ids = $this->util->value($this->input->post("cid"), array());
@@ -745,7 +873,7 @@ class Syslog extends CI_Controller {
 					$this->m_faq->update($data, $where);
 				}
 				$this->create_sitemap();
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 			else if ($task == "delete") {
 				$ids = $this->util->value($this->input->post("cid"), array());
@@ -754,17 +882,18 @@ class Syslog extends CI_Controller {
 					$this->m_faq->delete($where);
 				}
 				$this->create_sitemap();
-				redirect(site_url("syslog/faq"));
+				redirect(site_url("syslog/faq/{$category_id}"));
 			}
 		}
 		
 		if ($action == "add") {
 			$item = $this->m_faq->instance();
-			$this->_breadcrumb = array_merge($this->_breadcrumb, array("Add Faq" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$action}")));
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("Add FAQs" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$category_id}/{$action}")));
 			
 			$view_data = array();
 			$view_data["breadcrumb"] = $this->_breadcrumb;
 			$view_data["item"] = $item;
+			$view_data["category"] = $category;
 			
 			$tmpl_content = array();
 			$tmpl_content["content"] = $this->load->view("admin/faq/edit", $view_data, true);
@@ -772,20 +901,25 @@ class Syslog extends CI_Controller {
 		}
 		else if ($action == "edit") {
 			$item = $this->m_faq->load($id);
-			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$item->title}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$action}/{$id}")));
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$item->title}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$category_id}/{$action}/{$id}")));
 			
 			$view_data = array();
 			$view_data["breadcrumb"] = $this->_breadcrumb;
 			$view_data["item"] = $item;
+			$view_data["category"] = $category;
 			
 			$tmpl_content = array();
 			$tmpl_content["content"] = $this->load->view("admin/faq/edit", $view_data, true);
 			$this->load->view("layout/admin/main", $tmpl_content);
 		}
 		else {
+			$info = new stdClass();
+			$info->category_id = $category->id;
+			
 			$view_data = array();
 			$view_data["breadcrumb"]	= $this->_breadcrumb;
-			$view_data["items"]			= $this->m_faq->items();
+			$view_data["items"]			= $this->m_faq->items($info);
+			$view_data["category"]		= $category;
 			
 			$tmpl_content = array();
 			$tmpl_content["content"] = $this->load->view("admin/faq/index", $view_data, true);

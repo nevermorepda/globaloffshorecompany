@@ -5,7 +5,7 @@ class Faqs extends CI_Controller {
 	public function index()
 	{
 		$view_data = array();
-		$view_data['items'] = $this->m_faq->items(null,1);
+		$view_data['categories'] = $this->m_faq_category->items(null,1);
 		
 		$tmpl_content = array();
 		$tmpl_content['meta']['title'] = 'FAQs';

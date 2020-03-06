@@ -14,6 +14,8 @@
 
 	$services = $this->m_services->items();
 	$services_process = $this->m_services_process->items();
+
+	$faq_categories = $this->m_faq_category->items();
 ?>
 <div class="header">
 	<div class="header-top">
@@ -57,8 +59,17 @@
 								<li role="separator" class="divider"></li>
 								<? gen_category_menu($content_categories, $this); ?>
 								<li role="separator" class="divider"></li>
-								<li><a href="<?=site_url("syslog/faq")?>">Faqs</a></li>
 								<li><a href="<?=site_url("syslog/nations")?>">Nations</a></li>
+							</ul>
+						</li>
+						<li class="dropdown <?=((in_array($method, array('faq', 'faq-categories')))?'active':'')?>">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAQs <span class="caret"></span></a>
+							<ul class="dropdown-menu multi-level">
+								<li><a href="<?=site_url("syslog/faq-categories")?>">FAQs Categories</a></li>
+								<li role="separator" class="divider"></li>
+								<? foreach ($faq_categories as $faq_categorie) { ?>
+								<li><a href="<?=site_url("syslog/faq/{$faq_categorie->id}")?>"><?=$faq_categorie->name?></a></li>
+								<? } ?>
 							</ul>
 						</li>
 						<li class="dropdown <?=((in_array($method, array('services', 'services-tabs')))?'active':'')?>">

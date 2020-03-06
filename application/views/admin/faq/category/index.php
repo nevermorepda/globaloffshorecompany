@@ -2,13 +2,13 @@
 	<div class="container-fluid">
 		<div class="tool-bar clearfix">
 			<h1 class="page-title">
-				FAQs
+				FAQ Categories
 				<div class="pull-right">
 					<ul class="action-icon-list">
 						<li><a href="#" class="btn-unpublish"><i class="fa fa-eye-slash" aria-hidden="true"></i> Hide</a></li>
 						<li><a href="#" class="btn-publish"><i class="fa fa-eye" aria-hidden="true"></i> Show</a></li>
 						<li><a href="#" class="btn-delete"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
-						<li><a href="<?=site_url("syslog/faq/add")?>"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
+						<li><a href="<?=site_url("syslog/faq-categories/add")?>"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
 					</ul>
 				</div>
 			</h1>
@@ -38,9 +38,9 @@
 						<input type="checkbox" id="cb<?=$i?>" name="cid[]" value="<?=$item->id?>" onclick="isChecked(this.checked);">
 					</td>
 					<td>
-						<a href="<?=site_url("syslog/faq/{$item->category_id}/edit/{$item->id}")?>"><?=$item->title?></a>
+						<a href="<?=site_url("syslog/faq-categories/edit/{$item->id}")?>"><?=$item->name?></a>
 						<ul class="action-icon-list">
-							<li><a href="<?=site_url("syslog/faq/{$item->category_id}/edit/{$item->id}")?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
+							<li><a href="<?=site_url("syslog/faq-categories/edit/{$item->id}")?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a></li>
 							<li><a href="#" onclick="return confirmBox('Delete items', 'Are you sure you want to delete the selected items?', 'itemTask', ['cb<?=$i?>', 'delete']);"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
 							<? if ($item->active) { ?>
 							<li><a href="#" onclick="return itemTask('cb<?=$i?>','unpublish');"><i class="fa fa-eye-slash" aria-hidden="true"></i> Hide</a></li>

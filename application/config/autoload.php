@@ -180,5 +180,6 @@ $autoload['model'] = array(
 	'm_services_booking_detail',
 	'm_jurisdictions_resources',
 	'm_services_resources',
+	'm_faq_category',
 	'm_faq'
 );

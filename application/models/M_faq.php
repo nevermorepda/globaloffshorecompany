@@ -15,6 +15,9 @@ class M_faq extends M_db
 			if (!empty($info->search)) {
 				$sql .= " AND title LIKE '%{$info->search}%'";
 			}
+			if (!empty($info->category_id)) {
+				$sql .= " AND category_id = '{$info->category_id}'";
+			}
 		}
 		if (!is_null($active)) {
 			$sql .= " AND active = '{$active}'";
