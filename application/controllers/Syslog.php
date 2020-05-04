@@ -1977,7 +1977,7 @@ class Syslog extends CI_Controller {
 
 	public function pricing($service_id, $jurisdiction_id=null, $action=null) {
 
-		$this->_breadcrumb = array_merge($this->_breadcrumb, array("Pricing" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}")));
+		$this->_breadcrumb = array_merge($this->_breadcrumb, array("Pricing" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}")));
 		
 		$task = $this->util->value($this->input->post("task"), "");
 		if (!empty($task)) {

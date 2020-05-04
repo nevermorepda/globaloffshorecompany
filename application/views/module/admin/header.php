@@ -96,9 +96,10 @@
 						<li class="dropdown <?=((in_array($method, array('pricing')))?'active':'')?>">
 							<a href="#" class="dropdown-toggle" >Pricing</a>
 							<ul class="dropdown-menu">
-								<? foreach ($services as $service) { ?>
-								<li><a href="<?=site_url("syslog/pricing/{$service->id}")?>"><?=$service->name?></a></li>
-								<? } ?>
+								<li><a href="<?=site_url("syslog/pricing/1")?>">Company Services</a></li>
+								<?// foreach ($services as $service) { ?>
+								<!-- <li><a href="<?//=site_url("syslog/pricing/{$service->id}")?>"><?//=$service->name?></a></li> -->
+								<?// } ?>
 							</ul>
 						</li>
 						<li class="dropdown <?=((in_array($method, array('booking')))?'active':'')?>">

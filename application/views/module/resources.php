@@ -29,7 +29,6 @@
 										<?=word_limiter(strip_tags($resources[0]->summary), 35)?>
 										</p>
 									</a>
-									<a href="<?=site_url("news/{$resources[0]->alias}")?>" class="btn-viewmore">View more</a>
 									<div class="date">
 										<label><?=date('d',strtotime($resources[0]->created_date))?></label><br>
 										<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($resources[0]->created_date))?></label>
@@ -51,7 +50,6 @@
 							</div>
 							<h5 class="title-re-item"><?=$resources[$i]->title?></h5>
 						</a>
-						<a href="<?=site_url("news/{$resources[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
 					</div>
 					<? } ?>
 				</div>

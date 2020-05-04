@@ -59,7 +59,6 @@
 										<p>
 											<?=word_limiter(strip_tags($relateditems[0]->summary),20)?>
 										</p>
-										<a href="<?=site_url("news/{$relateditems[0]->alias}")?>" class="btn-viewmore">View more</a>
 										<div class="date">
 											<label><?=date('d',strtotime($relateditems[0]->created_date))?></label><br>
 											<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($relateditems[0]->created_date))?></label>
@@ -81,7 +80,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$relateditems[$i]->title?></h5>
-							<a href="<?=site_url("news/{$relateditems[$i]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>

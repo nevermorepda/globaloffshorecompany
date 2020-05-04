@@ -55,7 +55,6 @@
 								<p>
 									<?=word_limiter(strip_tags($items[0]->summary),20)?>
 								</p>
-								<a href="<?=site_url("news/{$items[0]->alias}")?>" class="btn-viewmore">View more</a>
 								<div class="date">
 									<label><?=date('d',strtotime($items[0]->created_date))?></label><br>
 									<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($items[0]->created_date))?></label>
@@ -80,7 +79,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[1]->title?></h5>
-							<a href="<?=site_url("news/{$items[1]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -96,7 +94,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[2]->title?></h5>
-							<a href="<?=site_url("news/{$items[2]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -112,7 +109,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[3]->title?></h5>
-							<a href="<?=site_url("news/{$items[3]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -134,7 +130,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[4]->title?></h5>
-							<a href="<?=site_url("news/{$items[4]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -148,7 +143,6 @@
 										<p>
 											<?=word_limiter(strip_tags($items[5]->summary),20)?>
 										</p>
-										<a href="<?=site_url("news/{$items[5]->alias}")?>" class="btn-viewmore">View more</a>
 										<div class="date">
 											<label><?=date('d',strtotime($items[5]->created_date))?></label><br>
 											<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($items[5]->created_date))?></label>
@@ -175,7 +169,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[6]->title?></h5>
-							<a href="<?=site_url("news/{$items[6]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -191,7 +184,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[7]->title?></h5>
-							<a href="<?=site_url("news/{$items[7]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -213,7 +205,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[8]->title?></h5>
-							<a href="<?=site_url("news/{$items[8]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -229,7 +220,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[9]->title?></h5>
-							<a href="<?=site_url("news/{$items[9]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -245,7 +235,6 @@
 								</div>
 							</div>
 							<h5 class="title-re-item"><?=$items[10]->title?></h5>
-							<a href="<?=site_url("news/{$items[10]->alias}")?>" class="btn btn-viewmore">view more</a>
 						</a>
 					</div>
 					<? } ?>
@@ -261,7 +250,6 @@
 								<p>
 									<?=word_limiter(strip_tags($items[11]->summary),20)?>
 								</p>
-								<a href="<?=site_url("news/{$items[11]->alias}")?>" class="btn-viewmore">View more</a>
 								<div class="date">
 									<label><?=date('d',strtotime($items[11]->created_date))?></label><br>
 									<label style="border-top: 1px solid #e6e6e6; font-size: 13px;"><?=date('M',strtotime($items[11]->created_date))?></label>
