@@ -1975,7 +1975,7 @@ class Syslog extends CI_Controller {
 		}
 	}
 
-	public function pricing($service_id, $jurisdiction_id=null, $action=null) {
+	public function pricing($service_id, $jurisdiction_id=null, $action=null, $services_tab_fee_id=null) {
 
 		$this->_breadcrumb = array_merge($this->_breadcrumb, array("Pricing" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}")));
 		
@@ -1998,13 +1998,28 @@ class Syslog extends CI_Controller {
 				
 				if ($action == "add") {
 					$this->m_services->add($data);
+					redirect(site_url("syslog/services"));
 				}
 				else if ($action == "edit") {
 					$where = array("id" => $id);
 					$this->m_services->update($data, $where);
+					redirect(site_url("syslog/services"));
+				} else {
+					$name	= $this->util->value($this->input->post("name"), "");
+					$data_tab = array(
+						"name" => $name,
+						"jurisdiction_id" => $jurisdiction_id,
+						"service_id" => $service_id,
+					);
+
+					if ($action == "add_type") {
+						$this->m_services_tab_fee->add($data_tab);
+					} else if ($action == "edit_type") {
+						$this->m_services_tab_fee->update($data_tab,array("id" => $services_tab_fee_id));
+					}
+					redirect(site_url("syslog/pricing/{$service_id}/{$jurisdiction_id}/edit"));
 				}
-				$this->create_sitemap();
-				redirect(site_url("syslog/services"));
+				
 			}
 			else if ($task == "cancel") {
 				redirect(site_url("syslog/services"));
@@ -2028,6 +2043,12 @@ class Syslog extends CI_Controller {
 			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$jurisdiction->name}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}/{$jurisdiction_id}/{$action}")));
 
 			$info->service_id = $service_id;
+			$tab_fee_items = $this->m_services_tab_fee->items($info);
+			if (empty($services_tab_fee_id)) {
+				$services_tab_fee_id = !empty($tab_fee_items) ? $tab_fee_items[0]->id : null;
+			}
+
+			$info->services_tab_fee_id = $services_tab_fee_id;
 			$items = $this->m_services_fee->items($info);
 
 			$view_data = array();
@@ -2035,10 +2056,47 @@ class Syslog extends CI_Controller {
 			$view_data["jurisdiction"] = $jurisdiction;
 			$view_data["service_id"] = $service_id;
 			$view_data["jurisdiction_id"] = $jurisdiction_id;
+			$view_data["services_tab_fee_id"] = $services_tab_fee_id;
+			$view_data["tab_fee_items"] = $tab_fee_items;
+			
 			$view_data["items"] = $items;
 			
 			$tmpl_content = array();
 			$tmpl_content["content"] = $this->load->view("admin/pricing/edit", $view_data, true);
+			$this->load->view("layout/admin/main", $tmpl_content);
+		}
+		else if ($action == "add_type") {
+			$info = new stdClass();
+			$info->jurisdiction_id = $jurisdiction_id;
+			$jurisdiction = $this->m_jurisdictions->jion_nation($info);
+
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$jurisdiction->name}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}/{$jurisdiction_id}/edit")));
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("Add type" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}/{$jurisdiction_id}/{$action}")));
+
+			$view_data = array();
+			$view_data["breadcrumb"] = $this->_breadcrumb;
+			$view_data["jurisdiction"] = $jurisdiction;
+			
+			$tmpl_content = array();
+			$tmpl_content["content"] = $this->load->view("admin/pricing/edit_tab", $view_data, true);
+			$this->load->view("layout/admin/main", $tmpl_content);
+		}
+		else if ($action == "edit_type") {
+			$info = new stdClass();
+			$info->jurisdiction_id = $jurisdiction_id;
+			$jurisdiction = $this->m_jurisdictions->jion_nation($info);
+
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("{$jurisdiction->name}" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}/{$jurisdiction_id}/edit")));
+			$this->_breadcrumb = array_merge($this->_breadcrumb, array("Add type" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}/{$service_id}/{$jurisdiction_id}/{$action}")));
+
+			$view_data = array();
+			$view_data["breadcrumb"] = $this->_breadcrumb;
+			$view_data["jurisdiction"] = $jurisdiction;
+			
+			$view_data["item"] = $this->m_services_tab_fee->load($services_tab_fee_id);
+			
+			$tmpl_content = array();
+			$tmpl_content["content"] = $this->load->view("admin/pricing/edit_tab", $view_data, true);
 			$this->load->view("layout/admin/main", $tmpl_content);
 		}
 		else {
@@ -2055,15 +2113,17 @@ class Syslog extends CI_Controller {
 	public function ajax_add_service_fee() {
 		$jurisdiction_id= $this->util->value($this->input->post("jurisdiction_id"), "");
 		$service_id		= $this->util->value($this->input->post("service_id"), "");
+		$services_tab_fee_id= $this->util->value($this->input->post("services_tab_fee_id"), "");
 		$name			= $this->util->value($this->input->post("name"), "");
 		$content		= $this->util->value($this->input->post("description"), "");
 		$fee			= $this->util->value($this->input->post("fee"), "");
 		$capital		= $this->util->value($this->input->post("capital"), "");
-		$recomen		= ($this->input->post("recomen") == true) ? 1 : 0;
+		$recomen		= ($this->input->post("recomen") == 'true') ? 1 : 0;
 
 		$data = array(
 			"jurisdiction_id" 	=> $jurisdiction_id,
 			"service_id" 		=> $service_id,
+			"services_tab_fee_id" 	=> $services_tab_fee_id,
 			"name" 				=> $name,
 			"content" 			=> $content,
 			"fee" 				=> $fee,
@@ -2091,12 +2151,12 @@ class Syslog extends CI_Controller {
 
 		$this->m_services_fee->update($data, array("id" => $item_id));
 	}
-	public function ajax_delete_service_fee() {
+	public function ajax_delete_item() {
 		$item_id	= $this->input->post("item_id");
-		$result = $this->m_services_fee->delete(array("id" => $item_id));
+		$tbl	= $this->input->post("tbl");
+		$result = $this->{$tbl}->delete(array("id" => $item_id));
 		echo json_encode($result);
 	}
-
 	public function slider($action=null, $id=null)
 	{
 		$this->_breadcrumb = array_merge($this->_breadcrumb, array("Sliders" => site_url("{$this->util->slug($this->router->fetch_class())}/{$this->util->slug($this->router->fetch_method())}")));

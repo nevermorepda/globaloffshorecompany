@@ -5,116 +5,140 @@
 				<?=$jurisdiction->name?>
 				<div class="pull-right">
 					<ul class="action-icon-list">
+						<li><a href="<?=site_url("syslog/pricing/{$service_id}/{$jurisdiction_id}/add_type")?>"><i class="fa fa-plus" aria-hidden="true"></i> Add type</a></li>
 						<li><a data-toggle="modal" href="#myModal"><i class="fa fa-plus" aria-hidden="true"></i> Add</a></li>
 					</ul>
 				</div>
 			</h1>
 		</div>
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Services fee</h4>
-				</div>
-				<div class="modal-body">
-					<input type="hidden" name="jurisdiction_id" value="<?=$jurisdiction_id?>">
-					<input type="hidden" name="service_id" value="<?=$service_id?>">
-					<input type="text" name="name" id="name" class="form-control" value="" placeholder="Title">
-					<br>
-					<div class="row">
-						<div class="col-md-4">
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">Fee</span>
-								<input type="text" name="fee" id="fee" class="form-control" placeholder="$0.00" aria-describedby="basic-addon1">
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="input-group">
-								<span class="input-group-addon" id="basic-addon1">Capital</span>
-								<input type="text" name="capital" id="capital" class="form-control" placeholder="$0.00" aria-describedby="basic-addon1">
-							</div>
-						</div>
-						<div class="col-md-4">
-							<div class="checkbox">
-								<label>
-									<input type="checkbox" name="recomen" id="recomen" value="1">
-									Recomendation
-								</label>
-							</div>
-						</div>
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Services fee</h4>
 					</div>
-					<br>
-					<textarea name="description" id="description" class="form-control" rows="3" required="required" placeholder="Description"></textarea>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary btn-add">Add</button>
+					<div class="modal-body">
+						<input type="hidden" name="jurisdiction_id" value="<?=$jurisdiction_id?>">
+						<input type="hidden" name="service_id" value="<?=$service_id?>">
+						<input type="hidden" name="services_tab_fee_id" value="<?=$services_tab_fee_id?>">
+						<input type="text" name="name" id="name" class="form-control" value="" placeholder="Title">
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">Fee</span>
+									<input type="text" name="fee" id="fee" class="form-control" placeholder="$0.00" aria-describedby="basic-addon1">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1">Capital</span>
+									<input type="text" name="capital" id="capital" class="form-control" placeholder="$0.00" aria-describedby="basic-addon1">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="recomen" id="recomen" value="1">
+										Recomendation
+									</label>
+								</div>
+							</div>
+						</div>
+						<br>
+						<textarea name="description" id="description" class="form-control" rows="3" required="required" placeholder="Description"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary btn-add">Add</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<script type="text/javascript">
-			$('.btn-add').click(function(event) {
-				var err = 0;
-				if ($("#name").val() == "") {
-					$("#name").addClass("error");
-					err++;
-				} else {
-					$("#name").removeClass("error");
-				}
+			<script type="text/javascript">
+				$('.btn-add').click(function(event) {
+					var err = 0;
+					if ($("#name").val() == "") {
+						$("#name").addClass("error");
+						err++;
+					} else {
+						$("#name").removeClass("error");
+					}
 
-				if ($("#description").val() == "") {
-					$("#description").addClass("error");
-					err++;
-				} else {
-					$("#description").removeClass("error");
-				}
+					if ($("#description").val() == "") {
+						$("#description").addClass("error");
+						err++;
+					} else {
+						$("#description").removeClass("error");
+					}
 
-				if ($("#fee").val() == "") {
-					$("#fee").addClass("error");
-					err++;
-				} else {
-					$("#fee").removeClass("error");
-				}
+					if ($("#fee").val() == "") {
+						$("#fee").addClass("error");
+						err++;
+					} else {
+						$("#fee").removeClass("error");
+					}
 
-				if ($("#capital").val() == "") {
-					$("#capital").addClass("error");
-					err++;
-				} else {
-					$("#capital").removeClass("error");
-				}
+					if ($("#capital").val() == "") {
+						$("#capital").addClass("error");
+						err++;
+					} else {
+						$("#capital").removeClass("error");
+					}
 
-				if (err == 0) {
-					var p = {};
-					p['jurisdiction_id'] = '<?=$jurisdiction_id?>';
-					p['service_id'] = '<?=$service_id?>';
-					p['name'] = $("#name").val();
-					p['description'] = $("#description").val();
-					p['fee'] = $("#fee").val();
-					p['capital'] = $("#capital").val();
-					p['recomen'] = $('#recomen').is(":checked");
+					if (err == 0) {
+						var p = {};
+						p['jurisdiction_id'] = '<?=$jurisdiction_id?>';
+						p['service_id'] = '<?=$service_id?>';
+						p['services_tab_fee_id'] = '<?=$services_tab_fee_id?>';
+						p['name'] = $("#name").val();
+						p['description'] = $("#description").val();
+						p['fee'] = $("#fee").val();
+						p['capital'] = $("#capital").val();
+						p['recomen'] = $('#recomen').is(":checked");
 
-					$.ajax({
-						url: '<?=site_url("syslog/ajax-add-service-fee")?>',
-						type: 'post',
-						dataType: 'json',
-						data: p,
-						success: function (data) {
-							if (data) {
-								window.location.reload();
+						$.ajax({
+							url: '<?=site_url("syslog/ajax-add-service-fee")?>',
+							type: 'post',
+							dataType: 'json',
+							data: p,
+							success: function (data) {
+								if (data) {
+									window.location.reload();
+								}
 							}
-						}
-					});
-				}
-			});
-		</script>
-	</div>
-		<? if (empty($items) || !sizeof($items)) { ?>
-		<p class="help-block">No item found.</p>
-		<? } else { ?>
+						});
+					}
+				});
+			</script>
+
+		</div>
 		<form id="frm-admin" name="adminForm" action="" method="POST">
 			<input type="hidden" id="task" name="task" value="">
 			<input type="hidden" id="boxchecked" name="boxchecked" value="0" />
+			<ul class="nav nav-tabs" role="tablist">
+				<? foreach ($tab_fee_items as $tab_fee_item) { 
+					$info = new stdClass();
+					$info->jurisdiction_id = $jurisdiction_id;
+					$info->service_id = $service_id;
+					$info->services_tab_fee_id = $tab_fee_item->id;
+					$fee_items = $this->m_services_fee->items($info);
+				?>
+				<li style="position: relative" class="<?=($tab_fee_item->id == $services_tab_fee_id) ? 'active' : ''?>" role="presentation">
+					<a style="padding-bottom: 25px;" href="<?=site_url("syslog/pricing/{$service_id}/{$jurisdiction_id}/edit/{$tab_fee_item->id}")?>"><?=$tab_fee_item->name?></a>
+					<ul class="action-services-tab-fee">
+						<li class="item">
+							<a href="<?=site_url("syslog/pricing/{$service_id}/{$jurisdiction_id}/edit_type/{$tab_fee_item->id}")?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+						</li>
+						<? if (empty($fee_items)) { ?>
+						<li class="item">
+							<a class="btn-delete" tbl="m_services_tab_fee" href="#" item-id="<?=$tab_fee_item->id?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+						</li>
+						<? } ?>
+					</ul>
+				</li>
+				<? } ?>
+			</ul>
 			<table class="table table-bordered">
 				<tr>
 					<th class="text-center" width="30px">#</th>
@@ -133,7 +157,7 @@
 					<td>
 						<input type="text" class="change" item-id="<?=$item->id?>" pro-type="name" value="<?=$item->name?>" style="background-color: #f2f2f2; width: 100%; text-align: left; border: none;">
 						<ul class="action-icon-list">
-							<li><a href="#" class="btn-delete" item-id="<?=$item->id?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
+							<li><a href="#" class="btn-delete" tbl="m_services_fee" item-id="<?=$item->id?>"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a></li>
 						</ul>
 					</td>
 					<td>
@@ -155,7 +179,6 @@
 				?>
 			</table>
 		</form>
-		<? } ?>
 	</div>
 </div>
 
@@ -229,14 +252,13 @@ $(document).ready(function() {
 	$(".btn-delete").click(function() {
 		var cf = confirm('Are you sure?');
 		if (cf) {
-			var item_id = $(this).attr("item-id");
-			
 			var p = {};
-			p["item_id"] = item_id;
+			p["item_id"] = $(this).attr("item-id");
+			p["tbl"] = $(this).attr("tbl");
 
 			$.ajax({
 				type: "POST",
-				url: "<?=site_url("syslog/ajax-delete-service-fee")?>",
+				url: "<?=site_url("syslog/ajax-delete-item")?>",
 				data: p,
 				success: function (data) {
 					if (data) {

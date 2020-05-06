@@ -176,6 +176,7 @@ $autoload['model'] = array(
 	'm_jurisdictions_faqs',
 	'm_slider',
 	'm_services_fee',
+	'm_services_tab_fee',
 	'm_services_booking',
 	'm_services_booking_detail',
 	'm_jurisdictions_resources',

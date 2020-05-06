@@ -1,11 +1,11 @@
 <?php
-class M_services_fee extends M_db
+class M_services_tab_fee extends M_db
 {
 	public function __construct()
 	{
 		parent::__construct();
 		
-		$this->_table = "vs_services_fee";
+		$this->_table = "vs_services_tab_fee";
 	}
 
 	function items($info=NULL, $active=NULL, $limit=NULL, $offset=NULL)
@@ -17,9 +17,6 @@ class M_services_fee extends M_db
 			}
 			if (!empty($info->service_id)) {
 				$sql .= " AND service_id = '{$info->service_id}'";
-			}
-			if (!empty($info->services_tab_fee_id)) {
-				$sql .= " AND services_tab_fee_id = '{$info->services_tab_fee_id}'";
 			}
 		}
 		$query = $this->db->query($sql);
