@@ -220,6 +220,21 @@ class Apply_company_services extends CI_Controller {
 		$tmpl_content['content'] = $this->load->view("apply/step", $view_data, TRUE);
 		$this->load->view('layout/main', $tmpl_content);
 	}
+	public function get_list_service_type_fee() {
+		$services_tab_fee_id = $this->input->post('services_tab_fee_id');
+
+		$info = new stdClass();
+		$info->services_tab_fee_id = $services_tab_fee_id;
+		$items = $this->m_services_fee->items($info);
+		$total = 0;
+		foreach ($items as $item) {
+			if (empty($item->recomen)) {
+				$total += $item->fee;
+			}
+		}
+
+		echo json_encode(array($items, $total));
+	}
 	public function get_list_service_fee() {
 		$nation = $this->input->post('nation');
 
@@ -230,6 +245,9 @@ class Apply_company_services extends CI_Controller {
 		$info = new stdClass();
 		$info->jurisdiction_id = $jurisdiction_id;
 		$info->service_id = $this->service_id;
+		$type_items = $this->m_services_tab_fee->items($info);
+
+		$info->services_tab_fee_id = $type_items[0]->id;
 		$items = $this->m_services_fee->items($info);
 
 		$total = 0;
@@ -238,7 +256,7 @@ class Apply_company_services extends CI_Controller {
 				$total += $item->fee;
 			}
 		}
-		echo json_encode(array($items, $total));
+		echo json_encode(array($items, $total, $type_items));
 	}
 	public function get_service_fee() {
 		$id = $this->input->post('id');

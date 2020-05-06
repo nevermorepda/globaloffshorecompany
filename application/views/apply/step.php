@@ -20,13 +20,23 @@
 								<strong class="select-title"> Select Jurisdiction:</strong>
 								<select name="jurisdiction" id="jurisdictions" class="form-control" required="required">
 									<option value="">Select Jurisdiction</option>
-									<? foreach ($jurisdictions as $jurisdiction) { 
+									<? foreach ($jurisdictions as $jurisdiction) {
 										$check_service = $this->m_jurisdiction_services->item($jurisdiction->jurisdiction_id, $service_id);
-										if (!empty($check_service)) {
+										$info = new stdClass();
+										$info->jurisdiction_id = $jurisdiction->jurisdiction_id;
+										$info->service_id = $service_id;
+										$type_jurisdiction = $this->m_services_tab_fee->items($info);
+										if (!empty($check_service) && !empty($type_jurisdiction)) {
 									?>
 									<option value="<?=$jurisdiction->alias?>"><?=$jurisdiction->name?></option>
 									<? } } ?>
 								</select>
+							</div>
+							<div class="col-md-4">
+								<div class="wrap-type" style="display: none;">
+									<strong class="select-title"> Select Type:</strong>
+									<select name="type_jurisdiction" id="type_jurisdictions" class="form-control" required="required"> </select>
+								</div>
 							</div>
 						</div>
 						<br>
