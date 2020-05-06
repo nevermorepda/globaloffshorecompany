@@ -17,11 +17,11 @@
 							<i class="fas fa-phone"></i> <?=$setting->company_hotline_vn?>
 						</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="" class="d-none d-lg-block">
 							<i class="fab fa-skype"></i> Global Offshore
 						</a>
-					</li>
+					</li> -->
 				</ul>
 				<ul class="float-right">
 					<li>

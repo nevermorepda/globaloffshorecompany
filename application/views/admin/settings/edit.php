@@ -22,20 +22,103 @@
 					<td><input type="text" id="company_email" name="company_email" class="form-control" value="<?=$setting->company_email?>"></td>
 				</tr>
 				<tr>
+					<td class="table-head text-right" width="10%">Tollfree</td>
+					<td><input type="text" id="company_tollfree" name="company_tollfree" class="form-control" value="<?=$setting->company_tollfree?>"></td>
+				</tr>
+			</table>
+			<h1 class="page-title">VN</h1>
+			<table class="table table-bordered">
+				<tr>
 					<td class="table-head text-right" width="10%">Hotline [VN]</td>
 					<td><input type="text" id="company_hotline_vn" name="company_hotline_vn" class="form-control" value="<?=$setting->company_hotline_vn?>"></td>
 				</tr>
 				<tr>
-					<td class="table-head text-right" width="10%">Hotline [AU]</td>
-					<td><input type="text" id="company_hotline_au" name="company_hotline_au" class="form-control" value="<?=$setting->company_hotline_au?>"></td>
+					<td class="table-head text-right" width="10%">Address [VN]</td>
+					<td><input type="text" id="company_address_vn" name="company_address_vn" class="form-control" value="<?=$setting->company_address_vn?>"></td>
 				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Email [VN]</td>
+					<td><input type="text" id="company_email_vn" name="company_email_vn" class="form-control" value="<?=$setting->company_email_vn?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Working time [VN]</td>
+					<td><input type="text" id="company_working_time_vn" name="company_working_time_vn" class="form-control" value="<?=$setting->company_working_time_vn?>"></td>
+				</tr>
+			</table>
+			<h1 class="page-title">US</h1>
+			<table class="table table-bordered">
 				<tr>
 					<td class="table-head text-right" width="10%">Hotline [US]</td>
 					<td><input type="text" id="company_hotline_us" name="company_hotline_us" class="form-control" value="<?=$setting->company_hotline_us?>"></td>
 				</tr>
 				<tr>
-					<td class="table-head text-right" width="10%">Tollfree</td>
-					<td><input type="text" id="company_tollfree" name="company_tollfree" class="form-control" value="<?=$setting->company_tollfree?>"></td>
+					<td class="table-head text-right" width="10%">Address [US]</td>
+					<td><input type="text" id="company_address_us" name="company_address_us" class="form-control" value="<?=$setting->company_address_us?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Email [US]</td>
+					<td><input type="text" id="company_email_us" name="company_email_us" class="form-control" value="<?=$setting->company_email_us?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Working time [US]</td>
+					<td><input type="text" id="company_working_time_us" name="company_working_time_us" class="form-control" value="<?=$setting->company_working_time_us?>"></td>
+				</tr>
+			</table>
+			<h1 class="page-title">AU</h1>
+			<table class="table table-bordered">
+				<tr>
+					<td class="table-head text-right" width="10%">Hotline [AU]</td>
+					<td><input type="text" id="company_hotline_au" name="company_hotline_au" class="form-control" value="<?=$setting->company_hotline_au?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Address [AU]</td>
+					<td><input type="text" id="company_address_au" name="company_address_au" class="form-control" value="<?=$setting->company_address_au?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Email [AU]</td>
+					<td><input type="text" id="company_email_au" name="company_email_au" class="form-control" value="<?=$setting->company_email_au?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Working time [AU]</td>
+					<td><input type="text" id="company_working_time_au" name="company_working_time_au" class="form-control" value="<?=$setting->company_working_time_au?>"></td>
+				</tr>
+			</table>
+			<h1 class="page-title">SIN</h1>
+			<table class="table table-bordered">
+				<tr>
+					<td class="table-head text-right" width="10%">Hotline [SIN]</td>
+					<td><input type="text" id="company_hotline_sin" name="company_hotline_sin" class="form-control" value="<?=$setting->company_hotline_sin?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Address [SIN]</td>
+					<td><input type="text" id="company_address_sin" name="company_address_sin" class="form-control" value="<?=$setting->company_address_sin?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Email [SIN]</td>
+					<td><input type="text" id="company_email_sin" name="company_email_sin" class="form-control" value="<?=$setting->company_email_sin?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Working time [SIN]</td>
+					<td><input type="text" id="company_working_time_sin" name="company_working_time_sin" class="form-control" value="<?=$setting->company_working_time_sin?>"></td>
+				</tr>
+			</table>
+			<h1 class="page-title">HK</h1>
+			<table class="table table-bordered">
+				<tr>
+					<td class="table-head text-right" width="10%">Hotline [HK]</td>
+					<td><input type="text" id="company_hotline_hk" name="company_hotline_hk" class="form-control" value="<?=$setting->company_hotline_hk?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Address [HK]</td>
+					<td><input type="text" id="company_address_hk" name="company_address_hk" class="form-control" value="<?=$setting->company_address_hk?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Email [HK]</td>
+					<td><input type="text" id="company_email_hk" name="company_email_hk" class="form-control" value="<?=$setting->company_email_hk?>"></td>
+				</tr>
+				<tr>
+					<td class="table-head text-right" width="10%">Working time [HK]</td>
+					<td><input type="text" id="company_working_time_hk" name="company_working_time_hk" class="form-control" value="<?=$setting->company_working_time_hk?>"></td>
 				</tr>
 			</table>
 			<h1 class="page-title">Social Links</h1>
