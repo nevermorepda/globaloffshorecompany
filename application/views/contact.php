@@ -7,27 +7,60 @@
 <div class="contact">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5">
+			<div class="col-md-12">
 				<h4 class="contact-title">CONTACT INFO</h4>
-				<ul class="contact-list">
-					<li class="phone"><a href=""><?=$setting->company_hotline_vn?></a></li>
-					<li class="mail"><a href=""><?=$setting->company_email?></a></li>
-					<li class="address"><a href="">187 E. Warm Springs Rd, Suite B324, Las Vegas, Nevada 89119</a></li>
-					<li class="address"><a href="">23 New Industrial Road #04-08 Solstice Business Center Singapore 536209</a></li>
-					<li class="address"><a href="">The EverRich Infinity, 290 An Duong Vuong, District 5, Ho Chi Minh City, Vietnam</a></li>
-				</ul>
-				<h4 class="contact-title">SOCIAL MEDIA</h4>
-				<ul class="contact-social">
-					<li><a class="transition" href="<?=$setting->facebook_url?>"><i class="fab fa-facebook-f"></i></a></li>
-					<li><a class="transition" href="#"><i class="fas fa-rss"></i></a></li>
-					<li><a class="transition" href="<?=$setting->googleplus_url?>"><i class="fab fa-google-plus-g"></i></a></li>
-					<li><a class="transition" href="#"><i class="fab fa-pinterest-p"></i></a></li>
-					<li><a class="transition" href="#"><i class="fab fa-instagram"></i></a></li>
-				</ul>
+				<div class="row">
+					<div class="col-md-4">
+						<ul class="contact-list">
+							<li class="flag"><img src="<?=IMG_URL.'flag/united-states.svg'?>" alt="united-states"> UNITED STATES</li>
+							<? if (!empty($setting->company_hotline_us)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_us?>"><?=$setting->company_hotline_us?></a></li> <? } ?>
+							<? if (!empty($setting->company_email_us)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_us?>"><?=$setting->company_email_us?></a></li> <? } ?>
+							<? if (!empty($setting->company_address_us)) {?><li class="address"><a href="#"><?=$setting->company_address_us?></a></li> <? } ?>
+							<? if (!empty($setting->company_working_time_us)) {?><li class="clock"><a href="#"><?=$setting->company_working_time_us?></a></li> <? } ?>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul class="contact-list">
+							<li class="flag"><img src="<?=IMG_URL.'flag/australia.svg'?>" alt="australia"> ASTRALIA</li>
+							<? if (!empty($setting->company_hotline_au)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_au?>"><?=$setting->company_hotline_au?></a></li> <? } ?>
+							<? if (!empty($setting->company_email_au)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_au?>"><?=$setting->company_email_au?></a></li> <? } ?>
+							<? if (!empty($setting->company_address_au)) {?><li class="address"><a href="#"><?=$setting->company_address_au?></a></li> <? } ?>
+							<? if (!empty($setting->company_working_time_au)) {?><li class="clock"><a href="#"><?=$setting->company_working_time_au?></a></li> <? } ?>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul class="contact-list">
+							<li class="flag"><img src="<?=IMG_URL.'flag/singapore.svg'?>" alt="singapore">SINGAPORE</li>
+							<? if (!empty($setting->company_hotline_sin)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_sin?>"><?=$setting->company_hotline_sin?></a></li> <? } ?>
+							<? if (!empty($setting->company_email_sin)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_sin?>"><?=$setting->company_email_sin?></a></li> <? } ?>
+							<? if (!empty($setting->company_address_sin)) {?><li class="address"><a href="#"><?=$setting->company_address_sin?></a></li> <? } ?>
+							<? if (!empty($setting->company_working_time_sin)) {?><li class="clock"><a href="#"><?=$setting->company_working_time_sin?></a></li> <? } ?>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul class="contact-list">
+							<li class="flag"><img src="<?=IMG_URL.'flag/hong-kong.svg'?>" alt="hong-kong"> HONG KONG</li>
+							<? if (!empty($setting->company_hotline_hk)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_hk?>"><?=$setting->company_hotline_hk?></a></li> <? } ?>
+							<? if (!empty($setting->company_email_hk)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_hk?>"><?=$setting->company_email_hk?></a></li> <? } ?>
+							<? if (!empty($setting->company_address_hk)) {?><li class="address"><a href="#"><?=$setting->company_address_hk?></a></li> <? } ?>
+							<? if (!empty($setting->company_working_time_hk)) {?><li class="clock"><a href="#"><?=$setting->company_working_time_hk?></a></li> <? } ?>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<ul class="contact-list">
+							<li class="flag"><img src="<?=IMG_URL.'flag/vietnam.svg'?>" alt="Vietnam"> VIETNAM</li>
+							<? if (!empty($setting->company_hotline_vn)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_vn?>"><?=$setting->company_hotline_vn?></a></li> <? } ?>
+							<? if (!empty($setting->company_email_vn)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_vn?>"><?=$setting->company_email_vn?></a></li> <? } ?>
+							<? if (!empty($setting->company_address_vn)) {?><li class="address"><a href="#"><?=$setting->company_address_vn?></a></li> <? } ?>
+							<? if (!empty($setting->company_working_time_vn)) {?><li class="clock"><a href="#"><?=$setting->company_working_time_vn?></a></li> <? } ?>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-7">
+			<div class="col-md-6">
+				<h4 class="contact-title">SEND YOUR MESSAGE</h4>
 				<form id="contact-form" action="<?=site_url("contact/message")?>" method="POST">
-					<h4 class="contact-title">SEND YOUR MESSAGE</h4>
+					
 					<div class="row">
 						<div class="col-md-6">
 							<input type="text" id="fullname" name="fullname" class="full-width" value="" required="" placeholder="Name">
@@ -62,14 +95,27 @@
 						</div>
 					</div>
 					<br>
-					<button type="submit" class="btn btn-1x btn-sm btn-danger btn-red btn-contact">Submit</button>
+					<button type="submit" class="btn btn-1x btn-sm btn-danger btn-red btn-contact full-width">Submit</button>
 				</form>
+				<br>
+				<h4 class="contact-title">SOCIAL MEDIA</h4>
+				<ul class="contact-social">
+					<li><a class="transition" href="<?=$setting->facebook_url?>"><i class="fab fa-facebook-f"></i></a></li>
+					<li><a class="transition" href="#"><i class="fas fa-rss"></i></a></li>
+					<li><a class="transition" href="<?=$setting->googleplus_url?>"><i class="fab fa-google-plus-g"></i></a></li>
+					<li><a class="transition" href="#"><i class="fab fa-pinterest-p"></i></a></li>
+					<li><a class="transition" href="#"><i class="fab fa-instagram"></i></a></li>
+				</ul>
+			</div>
+
+			<div class="col-md-6">
+				<h4 class="contact-title">FIND US IN MAP</h4>
+				<div id="Map" style="width: 100%; height: 400px;">
 			</div>
 		</div>
 		<hr>
 	</div>
 </div>
-<div id="Map" style="width: 100%; height: 400px;">
 </div>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDigCaYfSLVz0PhLL4P7s7D6kU5Kd63AEY&callback=initMap"></script>
 <script type="text/javascript">
@@ -96,7 +142,7 @@
 		areaiterator = 0;
 		region = new google.maps.LatLng(regionlocation[areaiterator].split(',')[0], regionlocation[areaiterator].split(',')[1]);
 		map = new google.maps.Map(document.getElementById("Map"), { 
-			zoom: 3,
+			zoom: 1,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,
 			center: vietnam,
 		});

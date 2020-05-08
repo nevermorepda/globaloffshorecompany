@@ -1606,6 +1606,23 @@ section .contact .contact-list .address::before  {
 	top: 4px;
 	font-size: 16px;
 }
+section .contact .contact-list .clock::before  {
+	position: absolute;
+	content: '\f017';
+	font-family: 'Font Awesome\ 5 Free';
+	font-weight: 900;
+	left: -20px;
+	top: 4px;
+	font-size: 16px;
+}
+section .contact .contact-list .flag img {
+	position: absolute;
+    left: -24px;
+    top: 10px;
+    width: 18px;
+    height: 13px;
+    object-fit: cover;
+}
 section .contact .contact-list li a {
 	color: #4d4d4b;
 }
