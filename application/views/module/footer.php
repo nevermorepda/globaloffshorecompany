@@ -69,8 +69,8 @@
 				</div>
 				<div class="col-sm-3">
 					<div class="item">
-						<i class="fas fa-envelope transition"></i>
-						<strong>Write to Us</strong>
+						<i class="fab fa-expeditedssl"></i>
+						<strong>Security</strong>
 					</div>
 				</div>
 				<div class="col-sm-3">
@@ -112,10 +112,10 @@
 				<div class="footer-logo">
 					<img src="<?=IMG_URL?>logo-mobile.png" alt="global offshore company" style="margin-top: 9px;">
 					<ul class="socical">
-						<li><a href="<?=$setting->googleplus_url?>" target="_blank"><i class="transition fab fa-instagram"></i></a></li>
-						<li><a href="<?=$setting->facebook_url?>" target="_blank"><i class="transition fab fa-facebook-f"></i></a></li>
-						<li><a href="<?=$setting->twitter_url?>" target="_blank"><i class="transition fab fa-twitter"></i></a></li>
-						<li><a href="<?=$setting->youtube_url?>" target="_blank"><i class="transition fab fa-youtube"></i></a></li>
+						<? if (!empty($setting->googleplus_url)) { ?><li><a href="<?=$setting->googleplus_url?>" target="_blank"><i class="transition fab fa-instagram"></i></a></li><? } ?>
+						<? if (!empty($setting->facebook_url)) { ?><li><a href="<?=$setting->facebook_url?>" target="_blank"><i class="transition fab fa-facebook-f"></i></a></li><? } ?>
+						<? if (!empty($setting->twitter_url)) { ?><li><a href="<?=$setting->twitter_url?>" target="_blank"><i class="transition fab fa-twitter"></i></a></li><? } ?>
+						<? if (!empty($setting->youtube_url)) { ?><li><a href="<?=$setting->youtube_url?>" target="_blank"><i class="transition fab fa-youtube"></i></a></li><? } ?>
 					</ul>
 				</div>
 			</div>
@@ -124,27 +124,38 @@
 					<div class="col-md-3">
 						<ul class="support">
 							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">SUPPORT PHONE</li>
-							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-							<li class="clearfix"><span class="float-left"><img src="<?=IMG_URL?>vn.PNG" alt="">Hong Kong:</span> <span class="float-right"><a href="">+123456789</a></span></li>
-						</ul>
+							<? if (!empty($setting->company_hotline_us)) { ?>
+							<li class="clearfix"><img src="<?=IMG_URL?>flag/united-states.svg" alt="united-states"><a href="tel:<?=$setting->company_hotline_us?>"><?=$setting->company_hotline_us?></a></li>
+							<? } ?>
+							<? if (!empty($setting->company_hotline_au)) { ?>
+							<li class="clearfix"><img src="<?=IMG_URL?>flag/australia.svg" alt="australia"><a href="tel:<?=$setting->company_hotline_au?>"><?=$setting->company_hotline_au?></a></li>
+							<? } ?>
+							<? if (!empty($setting->company_hotline_sin)) { ?>
+							<li class="clearfix"><img src="<?=IMG_URL?>flag/singapore.svg" alt="singapore"><a href="tel:<?=$setting->company_hotline_sin?>"><?=$setting->company_hotline_sin?></a></li>
+							<? } ?>
+							<? if (!empty($setting->company_hotline_hk)) { ?>
+							<li class="clearfix"><img src="<?=IMG_URL?>flag/hong-kong.svg" alt="hong-kong"><a href="tel:<?=$setting->company_hotline_hk?>"><?=$setting->company_hotline_hk?></a></li>
+							<? } ?>
+							<? if (!empty($setting->company_hotline_vn)) { ?>
+							<li class="clearfix"><img src="<?=IMG_URL?>flag/vietnam.svg" alt="vietnam"><a href="tel:<?=$setting->company_hotline_vn?>"><?=$setting->company_hotline_vn?></a></li>
+							<? } ?>
 					</div>
-					<div class="col-md-3">
+					<div class="col-md-4">
 						<ul class="support">
 							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;">FIND US</li>
-							<li> <i class="fas fa-phone"></i> <a href=""> <?=$setting->company_hotline_vn?></a></li>
-							<li> <i class="fas fa-envelope"></i> <a href=""> <?=$setting->company_email?></a></li>
+							<? if (!empty($setting->company_hotline_vn)) { ?><li> <i class="fas fa-phone"></i> <a href="tel:<?=$setting->company_hotline_vn?>"> <?=$setting->company_hotline_vn?></a></li><? } ?>
+							<? if (!empty($setting->company_email)) { ?><li> <i class="fas fa-envelope"></i> <a href="mailto:<?=$setting->company_email?>"> <?=$setting->company_email?></a></li><? } ?>
 							<li> <i class="far fa-clock"></i> Mon - Fri: 8:00 - 17:30</li>
-							
 						</ul>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-5">
 						<ul class="support">
 							<li style="font-size: 18px;font-weight: bold;padding-bottom: 10px;" class="d-none d-lg-block">ADDRESS</li>
-							<li> <i class="fas fa-map-marker-alt"></i> 187 E. Warm Springs Rd, Suite B324, Las Vegas, Nevada 89119</li>
-							<li> <i class="fas fa-map-marker-alt"></i> 23 New Industrial Road #04-08 Solstice Business Center Singapore 536209</li>
-							<li> <i class="fas fa-map-marker-alt"></i> The EverRich Infinity, 290 An Duong Vuong, District 5, Ho Chi Minh City, Vietnam</li>
+							<? if (!empty($setting->company_address_us)) { ?><li><img src="<?=IMG_URL?>flag/united-states.svg" alt="united-states"><?=$setting->company_address_us?></li><? } ?>
+							<? if (!empty($setting->company_address_au)) { ?><li><img src="<?=IMG_URL?>flag/australia.svg" alt="australia"><?=$setting->company_address_au?></li><? } ?>
+							<? if (!empty($setting->company_address_sin)) { ?><li><img src="<?=IMG_URL?>flag/singapore.svg" alt="singapore"><?=$setting->company_address_sin?></li><? } ?>
+							<? if (!empty($setting->company_address_hk)) { ?><li><img src="<?=IMG_URL?>flag/hong-kong.svg" alt="hong-kong"><?=$setting->company_address_hk?></li><? } ?>
+							<? if (!empty($setting->company_address_vn)) { ?><li><img src="<?=IMG_URL?>flag/vietnam.svg" alt="vietnam"><?=$setting->company_address_vn?></li><? } ?>
 						</ul>
 					</div>
 				</div>

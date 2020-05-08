@@ -100,11 +100,10 @@
 				<br>
 				<h4 class="contact-title">SOCIAL MEDIA</h4>
 				<ul class="contact-social">
-					<li><a class="transition" href="<?=$setting->facebook_url?>"><i class="fab fa-facebook-f"></i></a></li>
-					<li><a class="transition" href="#"><i class="fas fa-rss"></i></a></li>
-					<li><a class="transition" href="<?=$setting->googleplus_url?>"><i class="fab fa-google-plus-g"></i></a></li>
-					<li><a class="transition" href="#"><i class="fab fa-pinterest-p"></i></a></li>
-					<li><a class="transition" href="#"><i class="fab fa-instagram"></i></a></li>
+					<? if (!empty($setting->facebook_url)) { ?><li><a class="transition" href="<?=$setting->facebook_url?>"><i class="fab fa-facebook-f"></i></a></li><? } ?>
+					<? if (!empty($setting->twitter_url)) { ?><li><a class="transition" href="<?=$setting->twitter_url?>"><i class="fab fa-twitter"></i></a></li><? } ?>
+					<? if (!empty($setting->youtube_url)) { ?><li><a class="transition" href="<?=$setting->youtube_url?>"><i class="fab fa-youtube"></i></a></li><? } ?>
+					<? if (!empty($setting->googleplus_url)) { ?><li><a class="transition" href="<?=$setting->googleplus_url?>"><i class="fab fa-instagram"></i></a></li><? } ?>
 				</ul>
 			</div>
 

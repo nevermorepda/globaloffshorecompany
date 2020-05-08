@@ -1955,7 +1955,9 @@ footer .footer-content .support li {
 	padding: 2px 0;
 }
 footer .footer-content .support li img {
-	width: 20px;
+	width: 18px;
+	height: 13px;
+	object-fit: cover;
 	margin: 0 4px 4px 0;
 }
 footer .copyright {
