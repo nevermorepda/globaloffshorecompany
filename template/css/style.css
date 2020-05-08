@@ -1113,7 +1113,7 @@ section .services .item hr {
 	margin: 8px auto;
 }
 section .services .item p {
-	font-size: 16px;
+	font-size: 14px;
 }
 section .item .view-more {
 	position: absolute;
@@ -2533,6 +2533,14 @@ section .wrap-title .content-title:before {
 section .tonggle-content {
 	display: none;
 }
+section .tonggle-content p,
+section .tonggle-content a,
+section .tonggle-content span,
+section .tonggle-content strong,
+section .tonggle-content td,
+section .tonggle-content li {
+	font-size: 15px !important;
+}
 section .services-item {
 	text-align: center;
 }
@@ -2762,7 +2770,7 @@ footer .contact-mobile .contact-mobile-item .border-item strong {
 		background-repeat: no-repeat;
 	}
 	section .services .item { 
-		height: 285px;
+		height: 275px;
 	}
 }
 @media (min-width: 767px) {
@@ -2783,7 +2791,7 @@ footer .contact-mobile .contact-mobile-item .border-item strong {
 		background-repeat: no-repeat;
 	}
 	section .services .item { 
-		height: 325px;
+		height: 290px;
 	}
 }
 /* Landscape phone to portrait tablet */
