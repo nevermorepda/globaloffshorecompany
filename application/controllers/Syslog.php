@@ -212,38 +212,84 @@ class Syslog extends CI_Controller {
 		$task = $this->util->value($this->input->post("task"), "");
 		if (!empty($task)) {
 			if ($task == "save") {
-				$company_name		= $this->util->value($this->input->post("company_name"), "");
-				$company_address	= $this->util->value($this->input->post("company_address"), "");
-				$company_email		= $this->util->value($this->input->post("company_email"), "");
-				$company_hotline_vn	= $this->util->value($this->input->post("company_hotline_vn"), "");
-				$company_hotline_au	= $this->util->value($this->input->post("company_hotline_au"), "");
-				$company_hotline_us	= $this->util->value($this->input->post("company_hotline_us"), "");
-				$company_tollfree	= $this->util->value($this->input->post("company_tollfree"), "");
-				$facebook_url		= $this->util->value($this->input->post("facebook_url"), "");
-				$googleplus_url		= $this->util->value($this->input->post("googleplus_url"), "");
-				$twitter_url		= $this->util->value($this->input->post("twitter_url"), "");
-				$youtube_url		= $this->util->value($this->input->post("youtube_url"), "");
-				$bang_ip			= $this->util->value($this->input->post("bang_ip"), "");
-				$bang_name			= $this->util->value($this->input->post("bang_name"), "");
-				$bang_email			= $this->util->value($this->input->post("bang_email"), "");
-				$bang_passport		= $this->util->value($this->input->post("bang_passport"), "");
+				$company_name				= $this->util->value($this->input->post("company_name"), "");
+				$company_address			= $this->util->value($this->input->post("company_address"), "");
+				$company_email				= $this->util->value($this->input->post("company_email"), "");
+
+				$company_hotline_vn			= $this->util->value($this->input->post("company_hotline_vn"), "");
+				$company_address_vn			= $this->util->value($this->input->post("company_address_vn"), "");
+				$company_email_vn			= $this->util->value($this->input->post("company_email_vn"), "");
+				$company_working_time_vn	= $this->util->value($this->input->post("company_working_time_vn"), "");
+
+				$company_hotline_us			= $this->util->value($this->input->post("company_hotline_us"), "");
+				$company_address_us			= $this->util->value($this->input->post("company_address_us"), "");
+				$company_email_us			= $this->util->value($this->input->post("company_email_us"), "");
+				$company_working_time_us	= $this->util->value($this->input->post("company_working_time_us"), "");
+
+				$company_hotline_au			= $this->util->value($this->input->post("company_hotline_au"), "");
+				$company_address_au			= $this->util->value($this->input->post("company_address_au"), "");
+				$company_email_au			= $this->util->value($this->input->post("company_email_au"), "");
+				$company_working_time_au	= $this->util->value($this->input->post("company_working_time_au"), "");
+
+				$company_hotline_sin		= $this->util->value($this->input->post("company_hotline_sin"), "");
+				$company_address_sin		= $this->util->value($this->input->post("company_address_sin"), "");
+				$company_email_sin			= $this->util->value($this->input->post("company_email_sin"), "");
+				$company_working_time_sin	= $this->util->value($this->input->post("company_working_time_sin"), "");
+
+				$company_hotline_hk			= $this->util->value($this->input->post("company_hotline_hk"), "");
+				$company_address_hk			= $this->util->value($this->input->post("company_address_hk"), "");
+				$company_email_hk			= $this->util->value($this->input->post("company_email_hk"), "");
+				$company_working_time_hk	= $this->util->value($this->input->post("company_working_time_hk"), "");
+
+				$company_tollfree			= $this->util->value($this->input->post("company_tollfree"), "");
+				$facebook_url				= $this->util->value($this->input->post("facebook_url"), "");
+				$googleplus_url				= $this->util->value($this->input->post("googleplus_url"), "");
+				$twitter_url				= $this->util->value($this->input->post("twitter_url"), "");
+				$youtube_url				= $this->util->value($this->input->post("youtube_url"), "");
+				$bang_ip					= $this->util->value($this->input->post("bang_ip"), "");
+				$bang_name					= $this->util->value($this->input->post("bang_name"), "");
+				$bang_email					= $this->util->value($this->input->post("bang_email"), "");
+				$bang_passport				= $this->util->value($this->input->post("bang_passport"), "");
 				
 				$data = array (
-					"company_name"			=> $company_name,
-					"company_address"		=> $company_address,
-					"company_email"			=> $company_email,
-					"company_hotline_vn"	=> $company_hotline_vn,
-					"company_hotline_au"	=> $company_hotline_au,
-					"company_hotline_us"	=> $company_hotline_us,
-					"company_tollfree"		=> $company_tollfree,
-					"facebook_url"			=> $facebook_url,
-					"googleplus_url"		=> $googleplus_url,
-					"twitter_url"			=> $twitter_url,
-					"youtube_url"			=> $youtube_url,
-					"bang_ip"				=> $bang_ip,
-					"bang_name"				=> $bang_name,
-					"bang_email"			=> $bang_email,
-					"bang_passport"			=> $bang_passport,
+					"company_name"				=> $company_name,
+					"company_address"			=> $company_address,
+					"company_email"				=> $company_email,
+
+					"company_hotline_vn"		=> $company_hotline_vn,
+					"company_address_vn"		=> $company_address_vn,
+					"company_email_vn"			=> $company_email_vn,
+					"company_working_time_vn"	=> $company_working_time_vn,
+
+					"company_hotline_us"		=> $company_hotline_us,
+					"company_address_us"		=> $company_address_us,
+					"company_email_us"			=> $company_email_us,
+					"company_working_time_us"	=> $company_working_time_us,
+
+					"company_hotline_au"		=> $company_hotline_au,
+					"company_address_au"		=> $company_address_au,
+					"company_email_au"			=> $company_email_au,
+					"company_working_time_au"	=> $company_working_time_au,
+
+					"company_hotline_sin"		=> $company_hotline_sin,
+					"company_address_sin"		=> $company_address_sin,
+					"company_email_sin"			=> $company_email_sin,
+					"company_working_time_sin"	=> $company_working_time_sin,
+
+					"company_hotline_hk"		=> $company_hotline_hk,
+					"company_address_hk"		=> $company_address_hk,
+					"company_email_hk"			=> $company_email_hk,
+					"company_working_time_hk"	=> $company_working_time_hk,
+
+					"company_tollfree"			=> $company_tollfree,
+					"facebook_url"				=> $facebook_url,
+					"googleplus_url"			=> $googleplus_url,
+					"twitter_url"				=> $twitter_url,
+					"youtube_url"				=> $youtube_url,
+					"bang_ip"					=> $bang_ip,
+					"bang_name"					=> $bang_name,
+					"bang_email"				=> $bang_email,
+					"bang_passport"				=> $bang_passport,
 				);
 				
 				if (!is_null($settings) && sizeof($settings)) {

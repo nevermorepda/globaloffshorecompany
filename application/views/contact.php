@@ -9,6 +9,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<h4 class="contact-title">CONTACT INFO</h4>
+				<? if (!empty($setting->company_name)) {?><h5 class="company-name"><?=$setting->company_name?></h5><? } ?>
 				<div class="row">
 					<div class="col-md-4">
 						<ul class="contact-list">

@@ -1567,7 +1567,6 @@ section .contact .contact-title {
 	font-size: 25px;
 	font-weight: bold;
 	color: #4d4d4b;
-	margin-bottom: 25px;
 }
 section .contact .contact-list {
 	color: #4d4d4b;
@@ -1614,6 +1613,14 @@ section .contact .contact-list .clock::before  {
 	left: -20px;
 	top: 4px;
 	font-size: 16px;
+}
+section .contact .company-name {
+	font-size: 30px;
+    font-weight: bold;
+    color: #b21f1f;
+}
+section .contact .contact-list .flag {
+	font-weight: bold;
 }
 section .contact .contact-list .flag img {
 	position: absolute;
@@ -2600,7 +2607,6 @@ section .how-it-work-item .wrap-step .step {
 section .how-it-work-item .wrap-step .step-name {
 	display: inline-block;
 	width: 70%;
-	text-align: right;
 	font-size: 16px;
 	padding-left: 15px;
 }
