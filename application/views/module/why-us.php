@@ -12,29 +12,41 @@
 					</div>
 					<div class="list">
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore1.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-user-check"></i>
+							</div>
 							<h6>Delicated</h6>
 						</div>
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore2.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-award"></i>
+							</div>
 							<h6>Knowledgeable</h6>
 						</div>
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore3.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-hand-holding-usd"></i>
+							</div>
 							<h6>Fair Pricing</h6>
 						</div>
 					</div>
 					<div class="list">
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore4.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-users"></i>
+							</div>
 							<h6>Experienced</h6>
 						</div>
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore5.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-globe-americas"></i>
+							</div>
 							<h6>Multinational</h6>
 						</div>
 						<div class="item">
-							<img src="<?=IMG_URL?>icon-offshore6.png" alt="">
+							<div class="wrap-icon">
+								<i class="fas fa-users-cog"></i>
+							</div>
 							<h6>Client Focus</h6>
 						</div>
 					</div>
