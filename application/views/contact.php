@@ -8,8 +8,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h4 class="contact-title">CONTACT INFO</h4>
 				<? if (!empty($setting->company_name)) {?><h5 class="company-name"><?=$setting->company_name?></h5><? } ?>
+				<h4 class="contact-title">CONTACT INFO</h4>
+				
 				<div class="row">
 					<div class="col-md-4">
 						<ul class="contact-list">
@@ -22,7 +23,7 @@
 					</div>
 					<div class="col-md-4">
 						<ul class="contact-list">
-							<li class="flag"><img src="<?=IMG_URL.'flag/australia.svg'?>" alt="australia"> ASTRALIA</li>
+							<li class="flag"><img src="<?=IMG_URL.'flag/australia.svg'?>" alt="australia"> AUSTRALIA</li>
 							<? if (!empty($setting->company_hotline_au)) {?><li class="phone"><a href="tel:<?=$setting->company_hotline_au?>"><?=$setting->company_hotline_au?></a></li> <? } ?>
 							<? if (!empty($setting->company_email_au)) {?><li class="mail"><a href="mailto:<?=$setting->company_email_au?>"><?=$setting->company_email_au?></a></li> <? } ?>
 							<? if (!empty($setting->company_address_au)) {?><li class="address"><a href="#"><?=$setting->company_address_au?></a></li> <? } ?>
